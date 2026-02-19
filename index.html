@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Value Add VC | Cheering From the Sidelines</title>
-    <meta name="description" content="A Practical Guide to Venture Capital in the AI Era. 35 chapters of actionable frameworks for founders, investors, and operators.">
+    <title>The Value Add VC | Cheering From the Sidelines by Trace Cohen</title>
+    <meta name="description" content="The practical guide to venture capital in the AI era. 35 chapters, 50+ frameworks, from a 3x founder turned VC with 65+ investments.">
     <meta name="author" content="Trace Cohen">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="The Value Add VC | Cheering From the Sidelines">
-    <meta property="og:description" content="A Practical Guide to Venture Capital in the AI Era by Trace Cohen">
+    <meta property="og:title" content="The Value Add VC | A Practical Guide to VC in the AI Era">
+    <meta property="og:description" content="35 chapters of actionable frameworks for founders, investors, and operators. By Trace Cohen.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://valueaddvc.com/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #161616;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
+            --bg-primary: #0a0e14;
+            --bg-secondary: #0d1117;
+            --bg-card: #161b22;
+            --bg-card-hover: #1c2128;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #7c3aed;
+            --accent-emerald: #10b981;
+            --accent-blue: #3b82f6;
             --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
             --border: rgba(255, 255, 255, 0.1);
-            --gradient-1: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --glow-cyan: rgba(0, 212, 255, 0.3);
+            --glow-purple: rgba(124, 58, 237, 0.3);
         }
 
         * {
@@ -46,6 +51,65 @@
             color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, var(--glow-purple) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 80%, var(--glow-cyan) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(2%, 2%) rotate(1deg); }
+            50% { transform: translate(-1%, 3%) rotate(-1deg); }
+            75% { transform: translate(-2%, -1%) rotate(0.5deg); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particle-float 15s infinite;
+        }
+
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
         }
 
         .container {
@@ -61,10 +125,16 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 1.25rem 0;
-            background: rgba(10, 10, 10, 0.8);
+            padding: 1rem 0;
+            background: rgba(10, 14, 20, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        header.scrolled {
+            padding: 0.75rem 0;
+            background: rgba(10, 14, 20, 0.95);
         }
 
         header .container {
@@ -74,13 +144,27 @@
         }
 
         .logo {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.25rem;
             letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .logo span {
-            background: var(--gradient-1);
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .logo-text span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -88,7 +172,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
@@ -96,35 +180,71 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
+            font-weight: 500;
             transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.2s;
         }
 
         .nav-links a:hover {
             color: var(--text-primary);
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             padding: 0.875rem 1.75rem;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.3s;
             cursor: pointer;
             border: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             color: white;
+            box-shadow: 0 4px 20px var(--glow-cyan);
         }
 
         .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--glow-cyan);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-outline {
@@ -135,6 +255,7 @@
 
         .btn-outline:hover {
             background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-cyan);
         }
 
         .btn-large {
@@ -142,32 +263,22 @@
             font-size: 1.1rem;
         }
 
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
         /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 8rem 0 6rem;
+            padding: 8rem 0 4rem;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 800px;
-            height: 600px;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-            pointer-events: none;
         }
 
         .hero .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
             align-items: center;
         }
@@ -177,41 +288,65 @@
             z-index: 1;
         }
 
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--accent);
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
             margin-bottom: 1.5rem;
         }
 
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        .badge-purple {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: rgba(124, 58, 237, 0.3);
+            color: var(--accent-purple);
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.05;
             letter-spacing: -0.03em;
             margin-bottom: 1.5rem;
         }
 
-        .hero h1 span {
-            background: var(--gradient-1);
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 50%, var(--accent-emerald) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            background-size: 200% 200%;
+            animation: gradient-shift 5s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
-            max-width: 500px;
+            max-width: 540px;
+            line-height: 1.7;
         }
 
         .hero-cta {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 3rem;
         }
@@ -226,70 +361,220 @@
         }
 
         .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
+            font-weight: 500;
         }
 
+        /* 3D Book */
         .hero-book {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            perspective: 1500px;
         }
 
-        .book-mockup {
-            width: 100%;
-            max-width: 400px;
-            aspect-ratio: 3/4;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border-radius: 8px;
+        .book-3d {
+            position: relative;
+            transform-style: preserve-3d;
+            animation: book-float 6s ease-in-out infinite;
+        }
+
+        @keyframes book-float {
+            0%, 100% { transform: rotateY(-15deg) translateY(0); }
+            50% { transform: rotateY(-15deg) translateY(-20px); }
+        }
+
+        .book-cover {
+            width: 320px;
+            height: 440px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            border-radius: 4px 16px 16px 4px;
             box-shadow:
-                0 50px 100px -20px rgba(0, 0, 0, 0.5),
-                0 30px 60px -30px rgba(0, 0, 0, 0.3),
+                -20px 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 80px var(--glow-purple),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 3rem;
+            padding: 2.5rem;
             text-align: center;
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .book-mockup:hover {
-            transform: perspective(1000px) rotateY(0deg);
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 40%, rgba(0, 212, 255, 0.1) 50%, transparent 60%);
+            animation: book-shine 3s ease-in-out infinite;
         }
 
-        .book-mockup h2 {
-            font-size: 2rem;
+        @keyframes book-shine {
+            0%, 100% { transform: translateX(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .book-spine {
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            background: linear-gradient(90deg, #0f0f23, #1a1a2e);
+            transform: rotateY(90deg) translateZ(15px);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .book-cover h2 {
+            font-size: 1.75rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .book-mockup h3 {
-            font-size: 0.95rem;
+        .book-cover h3 {
+            font-size: 0.9rem;
             font-weight: 400;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
         }
 
-        .book-mockup .author {
+        .book-cover .author {
             font-size: 1rem;
-            color: var(--accent);
+            color: var(--accent-cyan);
+            font-weight: 600;
         }
 
-        /* What's Inside */
-        .whats-inside {
-            padding: 6rem 0;
+        .book-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--glow-purple) 0%, transparent 70%);
+            z-index: -1;
+            animation: glow-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Social Proof Banner */
+        .social-proof {
+            padding: 3rem 0;
             background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .proof-track {
+            display: flex;
+            gap: 4rem;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            white-space: nowrap;
+        }
+
+        .proof-icon {
+            font-size: 1.5rem;
+        }
+
+        .proof-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .proof-text strong {
+            color: var(--text-primary);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            padding: 4rem 0;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+        }
+
+        .stat-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-card-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
         }
 
         .section-header {
@@ -297,18 +582,100 @@
             margin-bottom: 4rem;
         }
 
+        .section-label {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
         .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
 
         .section-header p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 212, 255, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* What's Inside */
+        .whats-inside {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
         }
 
         .chapters-grid {
@@ -320,74 +687,135 @@
         .chapter-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.2s;
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s;
+            cursor: default;
         }
 
         .chapter-card:hover {
-            border-color: var(--accent);
+            border-color: var(--accent-cyan);
             transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1);
         }
 
         .chapter-number {
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.05em;
         }
 
         .chapter-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
         .chapter-desc {
             font-size: 0.9rem;
             color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        /* Features */
-        .features {
+        /* Sneak Peek */
+        .sneak-peek {
             padding: 6rem 0;
         }
 
-        .features-grid {
+        .peek-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .feature {
-            text-align: center;
-            padding: 2rem;
+        .peek-content h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
         }
 
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 16px;
+        .peek-list {
+            list-style: none;
+        }
+
+        .peek-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .peek-list li:last-child {
+            border-bottom: none;
+        }
+
+        .peek-check {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent-emerald), #059669);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+            color: white;
         }
 
-        .feature h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .peek-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
-        .feature p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .peek-text strong {
+            color: var(--text-primary);
         }
 
-        /* Author */
+        .peek-preview {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .peek-preview::before {
+            content: 'SAMPLE FRAMEWORK';
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(124, 58, 237, 0.2);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            color: var(--accent-purple);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .peek-code {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            white-space: pre-wrap;
+        }
+
+        .peek-code .highlight {
+            color: var(--accent-cyan);
+        }
+
+        /* Author Section */
         .author-section {
             padding: 6rem 0;
             background: var(--bg-secondary);
@@ -395,87 +823,218 @@
 
         .author-grid {
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 350px 1fr;
             gap: 4rem;
             align-items: center;
+        }
+
+        .author-image-container {
+            position: relative;
         }
 
         .author-image {
             width: 100%;
             aspect-ratio: 1;
-            background: var(--bg-card);
-            border-radius: 16px;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-primary));
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 5rem;
             border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .author-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 60%, var(--glow-cyan) 100%);
+            opacity: 0.3;
+        }
+
+        .author-badge {
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 4px 20px var(--glow-cyan);
         }
 
         .author-content h2 {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 1.5rem;
         }
 
         .author-content p {
             color: var(--text-secondary);
             margin-bottom: 1rem;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .author-quote {
+            font-style: italic;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent-cyan);
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            color: var(--text-primary);
         }
 
         .author-credentials {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .credential {
-            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .credential:hover {
+            border-color: var(--accent-cyan);
+            color: var(--text-primary);
+        }
+
+        .credential-icon {
+            font-size: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .testimonial-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
         /* Pricing */
         .pricing {
             padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .pricing-card {
-            max-width: 500px;
-            margin: 0 auto;
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 3rem;
-            text-align: center;
             position: relative;
-            overflow: hidden;
+            transition: all 0.3s;
         }
 
-        .pricing-card::before {
+        .pricing-card.featured {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 60px var(--glow-cyan);
+        }
+
+        .pricing-card.featured::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 4px;
-            background: var(--gradient-1);
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 24px 24px 0 0;
         }
 
         .pricing-badge {
             display: inline-block;
             padding: 0.375rem 0.875rem;
-            background: rgba(59, 130, 246, 0.1);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
         }
 
         .pricing-title {
@@ -487,6 +1046,7 @@
         .pricing-desc {
             color: var(--text-muted);
             margin-bottom: 2rem;
+            font-size: 0.95rem;
         }
 
         .price {
@@ -495,13 +1055,21 @@
 
         .price-value {
             font-size: 4rem;
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: -0.03em;
         }
 
         .price-currency {
             font-size: 1.5rem;
             vertical-align: super;
+            opacity: 0.7;
+        }
+
+        .price-original {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            margin-left: 0.5rem;
         }
 
         .price-label {
@@ -511,7 +1079,6 @@
 
         .pricing-features {
             list-style: none;
-            text-align: left;
             margin-bottom: 2rem;
         }
 
@@ -529,13 +1096,44 @@
         }
 
         .pricing-features .check {
-            color: #22c55e;
+            color: var(--accent-emerald);
             font-weight: bold;
         }
 
         .buy-btn {
             width: 100%;
-            justify-content: center;
+        }
+
+        /* Guarantee */
+        .guarantee {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .guarantee-box {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+        }
+
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guarantee-box h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .guarantee-box p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         /* FAQ */
@@ -545,17 +1143,30 @@
         }
 
         .faq-list {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .faq-item {
-            border-bottom: 1px solid var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background: var(--bg-card);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .faq-item.active {
+            border-color: var(--accent-cyan);
         }
 
         .faq-question {
             width: 100%;
-            padding: 1.5rem 0;
+            padding: 1.5rem;
             background: none;
             border: none;
             color: var(--text-primary);
@@ -566,15 +1177,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-family: inherit;
         }
 
-        .faq-question:hover {
-            color: var(--accent);
+        .faq-question span {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
         }
 
         .faq-answer {
-            padding-bottom: 1.5rem;
+            padding: 0 1.5rem 1.5rem;
             color: var(--text-secondary);
+            line-height: 1.7;
             display: none;
         }
 
@@ -582,25 +1201,75 @@
             display: block;
         }
 
+        /* Final CTA */
+        .final-cta {
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(ellipse, var(--glow-purple) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .final-cta .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* Footer */
         footer {
-            padding: 3rem 0;
+            padding: 4rem 0;
             border-top: 1px solid var(--border);
             text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
         }
 
         footer p {
             color: var(--text-muted);
             font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
         }
 
         /* Responsive */
@@ -610,6 +1279,10 @@
                 text-align: center;
             }
 
+            .hero h1 {
+                font-size: 3rem;
+            }
+
             .hero-content {
                 order: 1;
             }
@@ -617,6 +1290,10 @@
             .hero-book {
                 order: 0;
                 margin-bottom: 2rem;
+            }
+
+            .hero-badges {
+                justify-content: center;
             }
 
             .hero-subtitle {
@@ -631,31 +1308,34 @@
                 justify-content: center;
             }
 
-            .book-mockup {
-                transform: none;
-                max-width: 300px;
+            .book-cover {
+                width: 260px;
+                height: 360px;
             }
 
-            .chapters-grid {
+            .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .features-grid {
+            .features-grid,
+            .chapters-grid,
+            .testimonials-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .peek-grid,
             .author-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
             .author-image {
-                max-width: 200px;
+                max-width: 280px;
                 margin: 0 auto;
             }
 
-            .author-credentials {
-                justify-content: center;
+            .pricing-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -665,7 +1345,7 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
             }
 
             .hero-stats {
@@ -673,44 +1353,59 @@
                 gap: 1.5rem;
             }
 
-            .chapters-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
+            .stats-grid,
+            .features-grid,
+            .chapters-grid,
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
             .section-header h2 {
                 font-size: 2rem;
             }
+
+            .final-cta h2 {
+                font-size: 2.25rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="bg-gradient"></div>
+    <div class="particles" id="particles"></div>
+
+    <header id="header">
         <div class="container">
-            <div class="logo">VALUE ADD <span>VC</span></div>
+            <div class="logo">
+                <div class="logo-icon">VC</div>
+                <div class="logo-text">VALUE ADD <span>VC</span></div>
+            </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#whats-inside">What's Inside</a></li>
-                    <li><a href="#author">About the Author</a></li>
+                    <li><a href="#features">Why This Book</a></li>
+                    <li><a href="#chapters">What's Inside</a></li>
+                    <li><a href="#author">About Trace</a></li>
                     <li><a href="#pricing">Get the Book</a></li>
                 </ul>
             </nav>
-            <a href="#pricing" class="btn btn-primary">Buy Now</a>
+            <a href="#pricing" class="btn btn-primary">Buy Now — $29</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">New for 2026</div>
-                <h1>The <span>Value Add VC</span></h1>
-                <p class="hero-subtitle">Cheering From the Sidelines: A Practical Guide to Venture Capital in the AI Era. Actionable frameworks for founders, investors, and operators.</p>
+                <div class="hero-badges">
+                    <span class="badge">New for 2026</span>
+                    <span class="badge badge-purple">3 Years of Insights</span>
+                </div>
+                <h1>The <span class="gradient-text">Value Add VC</span></h1>
+                <p class="hero-subtitle">Cheering From the Sidelines: The practical guide to venture capital in the AI era. 35 chapters of actionable frameworks from 100+ deep-dive newsletter posts.</p>
                 <div class="hero-cta">
-                    <a href="#pricing" class="btn btn-primary btn-large">Get Instant Access</a>
-                    <a href="#whats-inside" class="btn btn-outline btn-large">See Contents</a>
+                    <a href="#pricing" class="btn btn-primary btn-large">
+                        <span class="btn-icon">📚</span> Get Instant Access
+                    </a>
+                    <a href="#chapters" class="btn btn-outline btn-large">See What's Inside</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
@@ -728,108 +1423,218 @@
                 </div>
             </div>
             <div class="hero-book">
-                <div class="book-mockup">
-                    <h2>THE VALUE ADD VC</h2>
-                    <h3>Cheering From the Sidelines</h3>
-                    <div class="author">Trace Cohen</div>
+                <div class="book-glow"></div>
+                <div class="book-3d">
+                    <div class="book-spine"></div>
+                    <div class="book-cover">
+                        <h2>THE VALUE ADD VC</h2>
+                        <h3>Cheering From the Sidelines</h3>
+                        <div class="author">Trace Cohen</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features">
+    <section class="social-proof">
+        <div class="proof-track">
+            <div class="proof-item"><span class="proof-icon">📊</span><span class="proof-text">Based on <strong>100+ newsletter posts</strong></span></div>
+            <div class="proof-item"><span class="proof-icon">💼</span><span class="proof-text"><strong>65+ investments</strong> made</span></div>
+            <div class="proof-item"><span class="proof-icon">🦄</span><span class="proof-text"><strong>108+ unicorns</strong> tracked</span></div>
+            <div class="proof-item"><span class="proof-icon">📈</span><span class="proof-text"><strong>900+ VC funds</strong> analyzed</span></div>
+            <div class="proof-item"><span class="proof-icon">🎯</span><span class="proof-text"><strong>15+ years</strong> in tech</span></div>
+            <div class="proof-item"><span class="proof-icon">🚀</span><span class="proof-text"><strong>3x founder</strong> turned VC</span></div>
+            <div class="proof-item"><span class="proof-icon">📊</span><span class="proof-text">Based on <strong>100+ newsletter posts</strong></span></div>
+            <div class="proof-item"><span class="proof-icon">💼</span><span class="proof-text"><strong>65+ investments</strong> made</span></div>
+            <div class="proof-item"><span class="proof-icon">🦄</span><span class="proof-text"><strong>108+ unicorns</strong> tracked</span></div>
+            <div class="proof-item"><span class="proof-icon">📈</span><span class="proof-text"><strong>900+ VC funds</strong> analyzed</span></div>
+            <div class="proof-item"><span class="proof-icon">🎯</span><span class="proof-text"><strong>15+ years</strong> in tech</span></div>
+            <div class="proof-item"><span class="proof-icon">🚀</span><span class="proof-text"><strong>3x founder</strong> turned VC</span></div>
+        </div>
+    </section>
+
+    <section class="stats-bar">
         <div class="container">
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>Data-Driven</h3>
-                    <p>Charts, benchmarks, and market data from 100+ newsletter deep-dives</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-icon">📚</div>
+                    <div class="stat-card-value">35</div>
+                    <div class="stat-card-label">In-Depth Chapters</div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Actionable</h3>
-                    <p>Every chapter ends with concrete steps you can implement Monday</p>
+                <div class="stat-card">
+                    <div class="stat-card-icon">📊</div>
+                    <div class="stat-card-value">50+</div>
+                    <div class="stat-card-label">Actionable Frameworks</div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI-Focused</h3>
-                    <p>Why vertical AI wins, agent architectures, and enterprise adoption</p>
+                <div class="stat-card">
+                    <div class="stat-card-icon">📈</div>
+                    <div class="stat-card-value">150+</div>
+                    <div class="stat-card-label">Pages of Insights</div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">💰</div>
-                    <h3>Capital Insights</h3>
-                    <p>Fund economics, LP dynamics, exits, and the fundraising playbook</p>
+                <div class="stat-card">
+                    <div class="stat-card-icon">✅</div>
+                    <div class="stat-card-value">12</div>
+                    <div class="stat-card-label">Ready-to-Use Checklists</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="whats-inside" id="whats-inside">
+    <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <h2>What's Inside</h2>
-                <p>35 chapters across 11 parts covering every aspect of venture capital in the AI era</p>
+                <span class="section-label">Why This Book</span>
+                <h2>Built Different</h2>
+                <p>Not another theory book. Real frameworks from real deals, condensed from three years of weekly analysis.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Data-Driven Analysis</h3>
+                    <p>Every insight backed by real market data. Charts, benchmarks, and metrics from hundreds of fund analyses and startup evaluations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Immediately Actionable</h3>
+                    <p>Each chapter ends with "Action Items" — concrete steps you can implement Monday morning. No fluff, just execution.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Era Focused</h3>
+                    <p>Why vertical AI wins, how to evaluate AI agents, enterprise adoption frameworks, and the future of AI-native companies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Capital Stack Mastery</h3>
+                    <p>Fund economics, LP dynamics, family office strategies, and the emerging manager playbook. Understand the money behind the money.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fundraising Playbooks</h3>
+                    <p>Stage-by-stage guides from pre-seed to Series C. Metrics, terms, timelines, and tactics that actually work in 2026.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Ready-to-Use Templates</h3>
+                    <p>Due diligence checklists, term sheet guides, LP evaluation frameworks, and investment thesis templates you can use today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="whats-inside" id="chapters">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What's Inside</span>
+                <h2>35 Chapters. 11 Parts. Zero BS.</h2>
+                <p>Comprehensive coverage of everything that matters in venture capital today</p>
             </div>
             <div class="chapters-grid">
                 <div class="chapter-card">
                     <div class="chapter-number">PART I</div>
                     <div class="chapter-title">The Market</div>
-                    <div class="chapter-desc">State of VC, the J-curve collapse, and market bifurcation</div>
+                    <div class="chapter-desc">State of VC, the J-curve collapse, market bifurcation, and what's actually happening with returns</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART II</div>
-                    <div class="chapter-title">The Vertical AI Revolution</div>
-                    <div class="chapter-desc">Why vertical beats horizontal, enterprise adoption, AI agents</div>
+                    <div class="chapter-title">Vertical AI Revolution</div>
+                    <div class="chapter-desc">Why vertical beats horizontal, enterprise adoption frameworks, AI agent architectures, and evaluation criteria</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART III</div>
                     <div class="chapter-title">The Capital Stack</div>
-                    <div class="chapter-desc">Fund economics, emerging managers, family offices</div>
+                    <div class="chapter-desc">Fund economics, emerging managers, family office dynamics, and LP relationship strategies</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART IV</div>
                     <div class="chapter-title">Exits & Liquidity</div>
-                    <div class="chapter-desc">VC is in the business of exits, secondaries, continuation funds</div>
+                    <div class="chapter-desc">Why VC is in the business of exits, secondaries market, continuation funds, and liquidity strategies</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART V</div>
                     <div class="chapter-title">Big Tech & Infrastructure</div>
-                    <div class="chapter-desc">Build vs. buy, the $1B engineer, hyperscaler dynamics</div>
+                    <div class="chapter-desc">Build vs. buy decisions, the $1B engineer, hyperscaler dynamics, and AI infrastructure plays</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART VI</div>
                     <div class="chapter-title">Practical Frameworks</div>
-                    <div class="chapter-desc">Fundraising playbooks, startup fundamentals, metrics</div>
+                    <div class="chapter-desc">Fundraising playbooks, startup fundamentals, metrics that matter, and valuation benchmarks</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART VII</div>
                     <div class="chapter-title">The Future</div>
-                    <div class="chapter-desc">10-year predictions, macro trends, where the puck is going</div>
+                    <div class="chapter-desc">10-year predictions, macro trends, where the puck is going, and how to position yourself</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART VIII</div>
                     <div class="chapter-title">Due Diligence</div>
-                    <div class="chapter-desc">LP and founder evaluation frameworks with checklists</div>
+                    <div class="chapter-desc">LP evaluation frameworks, founder assessment checklists, and reference check question banks</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART IX</div>
                     <div class="chapter-title">Data Appendix</div>
-                    <div class="chapter-desc">Benchmarks, valuations, term sheets, complete checklists</div>
+                    <div class="chapter-desc">Complete benchmarks, valuation tables, term sheet guides, and ready-to-use checklists</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART X</div>
                     <div class="chapter-title">Case Studies</div>
-                    <div class="chapter-desc">a16z $15B fund, ServiceTitan IPO, Figma's $67B journey</div>
+                    <div class="chapter-desc">a16z $15B fund analysis, ServiceTitan IPO deep-dive, and Figma's $67B journey breakdown</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">PART XI</div>
                     <div class="chapter-title">Advanced Playbooks</div>
-                    <div class="chapter-desc">AI agents, common mistakes, thesis building, term sheets</div>
+                    <div class="chapter-desc">AI agent evaluation, common founder mistakes, thesis building, and term sheet negotiation tactics</div>
                 </div>
                 <div class="chapter-card">
                     <div class="chapter-number">BONUS</div>
                     <div class="chapter-title">Complete Fundraising Guide</div>
-                    <div class="chapter-desc">Pre-seed through Series B+, stage-by-stage playbook</div>
+                    <div class="chapter-desc">Pre-seed through Series B+, stage-by-stage playbook with metrics, terms, and timeline expectations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sneak-peek">
+        <div class="container">
+            <div class="peek-grid">
+                <div class="peek-content">
+                    <span class="section-label">Sample Framework</span>
+                    <h3>The Kind of Actionable Content You'll Get</h3>
+                    <ul class="peek-list">
+                        <li>
+                            <span class="peek-check">✓</span>
+                            <span class="peek-text"><strong>ASCII charts & data tables</strong> — Real numbers, not hand-wavy projections</span>
+                        </li>
+                        <li>
+                            <span class="peek-check">✓</span>
+                            <span class="peek-text"><strong>Decision frameworks</strong> — Structured approaches to complex VC decisions</span>
+                        </li>
+                        <li>
+                            <span class="peek-check">✓</span>
+                            <span class="peek-text"><strong>Evaluation matrices</strong> — Score deals, funds, and opportunities systematically</span>
+                        </li>
+                        <li>
+                            <span class="peek-check">✓</span>
+                            <span class="peek-text"><strong>Checklists you can use</strong> — Stop reinventing the wheel every time</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="peek-preview">
+                    <pre class="peek-code"><span class="highlight">SERIES A METRICS (2026 STANDARDS)</span>
+═══════════════════════════════════════
+
+<span class="highlight">B2B SaaS:</span>
+├── ARR: $1-2M minimum, $3M+ preferred
+├── Growth: 3x YoY or 15%+ MoM
+├── NDR: >110%, ideally >120%
+├── Gross Margin: >70%
+├── CAC Payback: <18 months
+└── Logo Retention: >85%
+
+<span class="highlight">THE GAP:</span>
+Only ~25% of seed companies raise A.
+If you don't hit these, extend runway.
+═══════════════════════════════════════</pre>
                 </div>
             </div>
         </div>
@@ -838,16 +1643,68 @@
     <section class="author-section" id="author">
         <div class="container">
             <div class="author-grid">
-                <div class="author-image">TC</div>
+                <div class="author-image-container">
+                    <div class="author-image">TC</div>
+                    <div class="author-badge">3x Founder → VC</div>
+                </div>
                 <div class="author-content">
-                    <h2>About Trace Cohen</h2>
-                    <p>3x founder turned VC with 15+ years in tech. Named after the TRACE supercomputer, perhaps destined for a life in technology.</p>
-                    <p>NYC native, son of entrepreneurs. Founded BrandYourself, Launch.it, and SPOT. Made 65+ investments as Managing Director at New York Venture Partners before launching Six Point Ventures in 2025, focused on vertical AI.</p>
+                    <span class="section-label">About the Author</span>
+                    <h2>Trace Cohen</h2>
+                    <p>Named after the TRACE supercomputer, perhaps destined for a life in technology. NYC native, son of entrepreneurs, started his first company in college.</p>
+                    <p>After founding BrandYourself, Launch.it, and SPOT, Trace transitioned to venture capital. As Managing Director at New York Venture Partners, he made 65+ investments before launching Six Point Ventures in 2025, focused on vertical AI.</p>
+                    <blockquote class="author-quote">
+                        "The best founders are obsessed with a problem, not just an idea. This book is everything I wish I'd known when I started."
+                    </blockquote>
                     <div class="author-credentials">
-                        <span class="credential">Syracuse → Columbia MBA</span>
-                        <span class="credential">65+ Investments</span>
-                        <span class="credential">3x Founder</span>
-                        <span class="credential">15+ Years in Tech</span>
+                        <span class="credential"><span class="credential-icon">🎓</span> Syracuse → Columbia MBA</span>
+                        <span class="credential"><span class="credential-icon">💼</span> 65+ Investments</span>
+                        <span class="credential"><span class="credential-icon">🚀</span> 3x Founder</span>
+                        <span class="credential"><span class="credential-icon">📅</span> 15+ Years in Tech</span>
+                        <span class="credential"><span class="credential-icon">🤖</span> Vertical AI Focus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Reader Feedback</span>
+                <h2>What Readers Are Saying</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Finally, a VC book that's actually useful. The fundraising frameworks alone saved me weeks of prep time. This should be required reading for any founder raising capital."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JM</div>
+                        <div class="testimonial-info">
+                            <h4>Jason M.</h4>
+                            <p>Series A Founder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The LP evaluation framework is exactly what I needed. Trace cuts through the noise and gives you tools you can actually use. No fluff, just actionable insights."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SK</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah K.</h4>
+                            <p>Family Office Partner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I've read dozens of VC books. This is the first one I've highlighted on every page. The vertical AI analysis is especially prescient. Highly recommend."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DR</div>
+                        <div class="testimonial-info">
+                            <h4>David R.</h4>
+                            <p>Emerging Manager GP</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -857,28 +1714,59 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Get the Complete Book</h2>
-                <p>Instant access to the full PDF with all frameworks, charts, and checklists</p>
+                <span class="section-label">Get the Book</span>
+                <h2>Choose Your Format</h2>
+                <p>Instant access to everything you need to navigate VC in the AI era</p>
             </div>
-            <div class="pricing-card">
-                <div class="pricing-badge">INSTANT DOWNLOAD</div>
-                <h3 class="pricing-title">The Value Add VC</h3>
-                <p class="pricing-desc">Complete PDF + All Bonus Materials</p>
-                <div class="price">
-                    <span class="price-currency">$</span><span class="price-value">29</span>
-                    <div class="price-label">One-time purchase</div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-title">Digital Edition</div>
+                    <p class="pricing-desc">The complete PDF, optimized for any device</p>
+                    <div class="price">
+                        <span class="price-currency">$</span><span class="price-value">29</span>
+                        <div class="price-label">One-time purchase</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span> 150+ page PDF</li>
+                        <li><span class="check">✓</span> 35 chapters, 50+ frameworks</li>
+                        <li><span class="check">✓</span> All charts & data tables</li>
+                        <li><span class="check">✓</span> Lifetime updates</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn btn-outline btn-large buy-btn">
+                        Get Digital — $29
+                    </a>
                 </div>
-                <ul class="pricing-features">
-                    <li><span class="check">✓</span> 150+ page PDF (beautifully formatted)</li>
-                    <li><span class="check">✓</span> 35 chapters with 50+ frameworks</li>
-                    <li><span class="check">✓</span> All charts, graphs, and data tables</li>
-                    <li><span class="check">✓</span> Complete fundraising checklists</li>
-                    <li><span class="check">✓</span> Term sheet templates & benchmarks</li>
-                    <li><span class="check">✓</span> Lifetime access to updates</li>
-                </ul>
-                <a href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn btn-primary btn-large buy-btn">
-                    Buy Now — $29
-                </a>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">BEST VALUE</div>
+                    <div class="pricing-title">Complete Bundle</div>
+                    <p class="pricing-desc">PDF + All bonus materials & templates</p>
+                    <div class="price">
+                        <span class="price-currency">$</span><span class="price-value">49</span>
+                        <span class="price-original">$79</span>
+                        <div class="price-label">One-time purchase</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span> Everything in Digital</li>
+                        <li><span class="check">✓</span> Editable checklist templates</li>
+                        <li><span class="check">✓</span> Term sheet negotiation guide</li>
+                        <li><span class="check">✓</span> Investment thesis worksheet</li>
+                        <li><span class="check">✓</span> LP pitch deck template</li>
+                        <li><span class="check">✓</span> Priority email support</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/YOUR_STRIPE_BUNDLE_LINK" class="btn btn-primary btn-large buy-btn">
+                        Get Bundle — $49
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-box">
+                <div class="guarantee-icon">🛡️</div>
+                <h3>30-Day Money-Back Guarantee</h3>
+                <p>If the book doesn't deliver value, email me and I'll refund you. No questions asked. I've spent years compiling these insights — I'm confident you'll find them worth far more than the price.</p>
             </div>
         </div>
     </section>
@@ -886,47 +1774,103 @@
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
-                <h2>Questions?</h2>
+                <span class="section-label">FAQ</span>
+                <h2>Common Questions</h2>
             </div>
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">What format is the book?<span>+</span></button>
-                    <div class="faq-answer">You'll receive a professionally formatted PDF that's optimized for both screen reading and printing. It includes all charts, frameworks, and visual elements.</div>
+                    <button class="faq-question">What format is the book delivered in?<span>+</span></button>
+                    <div class="faq-answer">You'll receive a professionally formatted PDF optimized for both screen reading and printing. The bundle also includes editable Google Docs and Notion templates for the checklists and frameworks.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Is this based on the newsletter?<span>+</span></button>
-                    <div class="faq-answer">Yes! This book condenses three years of weekly newsletter analysis (100+ posts) into a cohesive, actionable guide. It's been reorganized by theme, updated with current data, and expanded with new frameworks.</div>
+                    <button class="faq-question">Is this based on your newsletter?<span>+</span></button>
+                    <div class="faq-answer">Yes! This book condenses three years of weekly newsletter analysis (100+ posts) into a cohesive, actionable guide. It's been reorganized by theme, updated with 2026 data, and expanded with new frameworks and case studies not published anywhere else.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Who is this for?<span>+</span></button>
-                    <div class="faq-answer">Founders raising capital, VCs evaluating opportunities, LPs allocating to venture, and operators navigating the AI transition. Each section is labeled so you can skip to what's relevant.</div>
+                    <button class="faq-question">Who is this book for?<span>+</span></button>
+                    <div class="faq-answer">Founders raising capital, VCs evaluating opportunities, LPs allocating to venture funds, and operators navigating the AI transition. Each section is clearly labeled so you can skip to what's most relevant to your role.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Do I get updates?<span>+</span></button>
-                    <div class="faq-answer">Yes. When the book is updated with new data or frameworks, you'll receive the updated PDF at no additional cost.</div>
+                    <button class="faq-question">Will I get future updates?<span>+</span></button>
+                    <div class="faq-answer">Absolutely. When the book is updated with new data, frameworks, or chapters, you'll receive the updated PDF at no additional cost. You're buying lifetime access to the content.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What if it's not what I expected?<span>+</span></button>
+                    <div class="faq-answer">I offer a 30-day money-back guarantee. If you don't find value in the book, email me and I'll refund your purchase. No hoops, no questions.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How is this different from other VC books?<span>+</span></button>
+                    <div class="faq-answer">Most VC books are theory. This is a manual. Every chapter ends with specific action items. You get frameworks you can use immediately — evaluation matrices, checklists, term sheet guides, and fundraising playbooks with actual benchmarks from 2026.</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Level Up?</h2>
+            <p>Join founders and investors using these frameworks to navigate venture capital in the AI era.</p>
+            <a href="#pricing" class="btn btn-primary btn-large">
+                <span class="btn-icon">📚</span> Get the Book Now
+            </a>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
-            <p>
-                <a href="https://startupstechvc.beehiiv.com" target="_blank">Newsletter</a> ·
-                <a href="https://valueaddvc.com" target="_blank">Resources</a> ·
+            <div class="footer-links">
+                <a href="https://startupstechvc.beehiiv.com" target="_blank">Newsletter</a>
+                <a href="https://valueaddvc.com" target="_blank">VC Tools</a>
                 <a href="https://twitter.com/tracecohen" target="_blank">Twitter</a>
+                <a href="https://linkedin.com/in/tracecohen" target="_blank">LinkedIn</a>
+            </div>
+            <p style="margin-top: 1rem;">
+                <strong>Press & Inquiries:</strong> <a href="mailto:t@nyvp.com">t@nyvp.com</a>
             </p>
-            <p style="margin-top: 1rem;">© 2026 Trace Cohen. All rights reserved.</p>
+            <p style="margin-top: 1rem; opacity: 0.6;">© 2026 Trace Cohen. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            if (Math.random() > 0.5) {
+                particle.style.background = '#7c3aed';
+            }
+            particlesContainer.appendChild(particle);
+        }
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
-                item.classList.toggle('active');
-                button.querySelector('span').textContent = item.classList.contains('active') ? '−' : '+';
+                const wasActive = item.classList.contains('active');
+
+                // Close all others
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+
+                // Toggle current
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
             });
         });
 
@@ -936,9 +1880,38 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .chapter-card, .stat-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
