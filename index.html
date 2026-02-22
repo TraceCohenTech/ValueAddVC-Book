@@ -3,119 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Value Add VC | Cheering From the Sidelines by Trace Cohen</title>
-    <meta name="description" content="The practical guide to venture capital in the AI era. 35 chapters, 50+ frameworks, from a 3x founder turned VC with 65+ investments.">
-    <meta name="author" content="Trace Cohen">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="The Value Add VC | A Practical Guide to VC in the AI Era">
-    <meta property="og:description" content="35 chapters of actionable frameworks for founders, investors, and operators. By Trace Cohen.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://valueaddvc.com/og-image.png">
-
+    <title>The Value Add VC Handbook | By Trace Cohen</title>
+    <meta name="description" content="The insider's guide to venture capital. 20 years of lessons from a 3x founder and 65+ investment veteran.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-primary: #0a0e14;
-            --bg-secondary: #0d1117;
-            --bg-card: #161b22;
-            --bg-card-hover: #1c2128;
-            --accent-cyan: #00d4ff;
-            --accent-purple: #7c3aed;
-            --accent-emerald: #10b981;
-            --accent-blue: #3b82f6;
-            --text-primary: #ffffff;
-            --text-secondary: #8b949e;
-            --text-muted: #6e7681;
-            --border: rgba(255, 255, 255, 0.1);
-            --glow-cyan: rgba(0, 212, 255, 0.3);
-            --glow-purple: rgba(124, 58, 237, 0.3);
+            --bg-dark: #111827;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-glass: rgba(255, 255, 255, 0.08);
+            --border-glass: rgba(255, 255, 255, 0.15);
+            --border-glow: rgba(59, 130, 246, 0.6);
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --cyan: #22d3ee;
+            --purple: #a855f7;
+            --pink: #ec4899;
+            --orange: #f97316;
+            --green: #10b981;
+            --text: #ffffff;
+            --text-muted: #d1d5db;
+            --text-dim: #9ca3af;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
         /* Animated Background */
-        .bg-gradient {
+        .bg-wrapper {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
             overflow: hidden;
         }
 
-        .bg-gradient::before {
-            content: '';
+        .bg-gradient {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 20%, var(--glow-purple) 0%, transparent 40%),
-                        radial-gradient(circle at 70% 80%, var(--glow-cyan) 0%, transparent 40%);
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse 80% 80% at 50% -20%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 80% 50%, rgba(34, 211, 238, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #111827 0%, #1e293b 50%, #111827 100%);
+        }
+
+        /* Floating Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
             animation: float 20s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(34, 211, 238, 0.3));
+            top: -10%;
+            right: -10%;
+            animation-duration: 25s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(59, 130, 246, 0.4));
+            bottom: 10%;
+            left: -10%;
+            animation-duration: 30s;
+            animation-delay: -10s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(34, 211, 238, 0.25));
+            top: 50%;
+            right: 20%;
+            animation-duration: 22s;
+            animation-delay: -5s;
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(2%, 2%) rotate(1deg); }
-            50% { transform: translate(-1%, 3%) rotate(-1deg); }
-            75% { transform: translate(-2%, -1%) rotate(0.5deg); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 10px) scale(1.02); }
         }
 
-        /* Floating Particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .particle {
+        /* Neural Network Canvas */
+        .neural-canvas {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--accent-cyan);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: particle-float 15s infinite;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
-        @keyframes particle-float {
-            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        /* Tech Grid - Circuit Board Style */
+        .grid-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.03) 0%, transparent 50%);
+            background-size: 80px 80px, 80px 80px, 100% 100%;
+        }
+
+        /* Data Flow Lines */
+        .data-flow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.6;
+        }
+
+        .flow-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            animation: flowMove 8s linear infinite;
+        }
+
+        .flow-line-v {
+            position: absolute;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--blue), transparent);
+            animation: flowMoveV 10s linear infinite;
+        }
+
+        @keyframes flowMove {
+            0% { transform: translateX(-100%); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(100vw); opacity: 0; }
+        }
+
+        @keyframes flowMoveV {
+            0% { transform: translateY(-100%); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Hexagon Pattern Overlay */
+        .hex-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2322d3ee' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+        }
+
+        /* Glass Card */
+        .glass {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass:hover {
+            border-color: var(--border-glow);
+            box-shadow:
+                0 0 30px rgba(59, 130, 246, 0.1),
+                inset 0 0 30px rgba(59, 130, 246, 0.03);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--cyan), var(--blue));
+            background-size: 200% 100%;
+            animation: progressGradient 2s linear infinite;
+            z-index: 101;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        @keyframes progressGradient {
+            0% { background-position: 200% 0; }
+            100% { background-position: 0% 0; }
         }
 
         /* Header */
@@ -126,15 +224,15 @@
             right: 0;
             z-index: 100;
             padding: 1rem 0;
-            background: rgba(10, 14, 20, 0.8);
+            background: rgba(17, 24, 39, 0.85);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--border-glass);
             transition: all 0.3s;
         }
 
         header.scrolled {
             padding: 0.75rem 0;
-            background: rgba(10, 14, 20, 0.95);
+            background: rgba(17, 24, 39, 0.95);
         }
 
         header .container {
@@ -146,42 +244,23 @@
         .logo {
             font-weight: 800;
             font-size: 1.25rem;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .logo-text span {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            background: linear-gradient(135deg, var(--blue-light), var(--cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-secondary);
+            color: #e5e7eb;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: all 0.3s;
             position: relative;
         }
 
@@ -192,47 +271,37 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-cyan);
-            transition: width 0.2s;
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
+            transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: var(--text);
         }
 
         .nav-links a:hover::after {
             width: 100%;
         }
 
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
             padding: 0.875rem 1.75rem;
-            border-radius: 10px;
+            border-radius: 12px;
             font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border: none;
             position: relative;
             overflow: hidden;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: white;
-            box-shadow: 0 4px 20px var(--glow-cyan);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--glow-cyan);
-        }
-
-        .btn-primary::before {
+        .btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -243,28 +312,54 @@
             transition: left 0.5s;
         }
 
-        .btn-primary:hover::before {
+        .btn:hover::before {
             left: 100%;
         }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border);
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            position: relative;
+            z-index: 1;
         }
 
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-cyan);
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--cyan), var(--blue), var(--cyan));
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            filter: blur(8px);
         }
 
-        .btn-large {
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
+        .btn-glass {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            color: var(--text);
+        }
+
+        .btn-glass:hover {
+            border-color: var(--blue);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-lg {
             padding: 1.125rem 2.5rem;
             font-size: 1.1rem;
-        }
-
-        .btn-icon {
-            font-size: 1.2rem;
         }
 
         /* Hero */
@@ -273,197 +368,129 @@
             display: flex;
             align-items: center;
             padding: 8rem 0 4rem;
-            position: relative;
         }
 
-        .hero .container {
+        .hero-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
         }
 
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .badge {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 100px;
             font-size: 0.85rem;
-            color: var(--accent-cyan);
+            color: var(--cyan);
             font-weight: 500;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .badge-purple {
-            background: rgba(124, 58, 237, 0.1);
-            border-color: rgba(124, 58, 237, 0.3);
-            color: var(--accent-purple);
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 211, 238, 0); }
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
         }
 
-        .hero h1 .gradient-text {
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 50%, var(--accent-emerald) 100%);
+        .hero h1 .gradient-animate {
+            font-size: 2.25rem;
+            display: block;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--blue-light), var(--cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             background-size: 200% 200%;
-            animation: gradient-shift 5s ease infinite;
+            animation: gradientShift 3s ease-in-out infinite;
         }
 
-        @keyframes gradient-shift {
+        @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
 
-        .hero-subtitle {
-            font-size: 1.35rem;
-            color: var(--text-secondary);
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--text-muted);
             margin-bottom: 2rem;
+            line-height: 1.8;
             max-width: 540px;
-            line-height: 1.7;
         }
 
         .hero-cta {
             display: flex;
-            flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .beta-note {
+            font-size: 0.9rem;
+            color: #22d3ee;
+            margin-bottom: 2rem;
+            font-style: italic;
         }
 
         .hero-stats {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
         }
 
-        .stat {
-            text-align: left;
+        .stat-card {
+            padding: 1rem 1.5rem;
+            text-align: center;
         }
 
         .stat-value {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            background: linear-gradient(135deg, var(--text), var(--cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        /* 3D Book */
+        /* Book 3D */
         .hero-book {
-            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            perspective: 1500px;
+            perspective: 1000px;
         }
 
-        .book-3d {
+        .book-container {
             position: relative;
             transform-style: preserve-3d;
-            animation: book-float 6s ease-in-out infinite;
+            animation: bookFloat 6s ease-in-out infinite;
         }
 
-        @keyframes book-float {
-            0%, 100% { transform: rotateY(-15deg) translateY(0); }
-            50% { transform: rotateY(-15deg) translateY(-20px); }
-        }
-
-        .book-cover {
-            width: 320px;
-            height: 440px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
-            border-radius: 4px 16px 16px 4px;
-            box-shadow:
-                -20px 20px 60px rgba(0, 0, 0, 0.5),
-                0 0 80px var(--glow-purple),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2.5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .book-cover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent 40%, rgba(0, 212, 255, 0.1) 50%, transparent 60%);
-            animation: book-shine 3s ease-in-out infinite;
-        }
-
-        @keyframes book-shine {
-            0%, 100% { transform: translateX(-100%) rotate(45deg); }
-            50% { transform: translateX(100%) rotate(45deg); }
-        }
-
-        .book-spine {
-            position: absolute;
-            left: -30px;
-            top: 0;
-            width: 30px;
-            height: 100%;
-            background: linear-gradient(90deg, #0f0f23, #1a1a2e);
-            transform: rotateY(90deg) translateZ(15px);
-            border-radius: 4px 0 0 4px;
-        }
-
-        .book-cover h2 {
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #fff, #a0a0a0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .book-cover h3 {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.5;
-        }
-
-        .book-cover .author {
-            font-size: 1rem;
-            color: var(--accent-cyan);
-            font-weight: 600;
+        @keyframes bookFloat {
+            0%, 100% { transform: translateY(0) rotateY(-5deg); }
+            50% { transform: translateY(-20px) rotateY(5deg); }
         }
 
         .book-glow {
@@ -473,108 +500,74 @@
             transform: translate(-50%, -50%);
             width: 400px;
             height: 500px;
-            background: radial-gradient(ellipse, var(--glow-purple) 0%, transparent 70%);
-            z-index: -1;
-            animation: glow-pulse 4s ease-in-out infinite;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: glowPulse 4s ease-in-out infinite;
         }
 
-        @keyframes glow-pulse {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
         }
 
-        /* Social Proof Banner */
+        .book-image {
+            position: relative;
+            width: 380px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+            object-fit: contain;
+        }
+
+        .book-container:hover .book-image {
+            transform: scale(1.02);
+        }
+
+        .book-shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 40%, transparent 100%);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        /* Social Proof */
         .social-proof {
-            padding: 3rem 0;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            overflow: hidden;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+            background: rgba(255, 255, 255, 0.04);
         }
 
-        .proof-track {
+        .proof-items {
             display: flex;
-            gap: 4rem;
-            animation: scroll 30s linear infinite;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
 
         .proof-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            white-space: nowrap;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: #e5e7eb;
         }
 
-        .proof-icon {
-            font-size: 1.5rem;
+        .proof-item strong {
+            color: #22d3ee;
+            font-weight: 700;
         }
 
-        .proof-text {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
 
-        .proof-text strong {
-            color: var(--text-primary);
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            padding: 4rem 0;
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            transition: all 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
-        }
-
-        .stat-card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .stat-card-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-card-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* Features Section */
-        .features {
+        /* Sections */
+        section {
             padding: 6rem 0;
+            position: relative;
         }
 
         .section-header {
@@ -582,46 +575,44 @@
             margin-bottom: 4rem;
         }
 
-        .section-label {
+        .section-tag {
             display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--accent-cyan);
+            padding: 0.5rem 1.25rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 100px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
+            color: var(--cyan);
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            margin-bottom: 1rem;
         }
 
         .section-header h2 {
-            font-size: 3rem;
+            font-size: 2.75rem;
             font-weight: 800;
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
 
         .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
+            color: #d1d5db;
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.7;
         }
 
+        /* Features Grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.3s;
+            padding: 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -632,32 +623,19 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 212, 255, 0.3);
-            background: var(--bg-card-hover);
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .feature-card:hover::before {
-            transform: scaleX(1);
+            opacity: 1;
         }
 
         .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.75rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .feature-card h3 {
@@ -667,265 +645,118 @@
         }
 
         .feature-card p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
-        /* What's Inside */
-        .whats-inside {
-            padding: 6rem 0;
-            background: var(--bg-secondary);
-        }
-
+        /* Chapters */
         .chapters-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
         }
 
         .chapter-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.75rem;
-            transition: all 0.3s;
-            cursor: default;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
         }
 
         .chapter-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1);
+            transform: translateY(-4px);
         }
 
-        .chapter-number {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
-            border-radius: 50px;
+        .chapter-num {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.05em;
-        }
-
-        .chapter-title {
-            font-size: 1.15rem;
-            font-weight: 700;
+            color: var(--cyan);
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
-        .chapter-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* Sneak Peek */
-        .sneak-peek {
-            padding: 6rem 0;
-        }
-
-        .peek-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .peek-content h3 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .peek-list {
-            list-style: none;
-        }
-
-        .peek-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .peek-list li:last-child {
-            border-bottom: none;
-        }
-
-        .peek-check {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--accent-emerald), #059669);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 0.75rem;
-            color: white;
-        }
-
-        .peek-text {
-            color: var(--text-secondary);
+        .chapter-title {
             font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .peek-text strong {
-            color: var(--text-primary);
-        }
-
-        .peek-preview {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .peek-preview::before {
-            content: 'SAMPLE FRAMEWORK';
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            padding: 0.25rem 0.75rem;
-            background: rgba(124, 58, 237, 0.2);
-            border-radius: 50px;
-            font-size: 0.7rem;
-            color: var(--accent-purple);
             font-weight: 700;
-            letter-spacing: 0.05em;
         }
 
-        .peek-code {
-            font-family: 'JetBrains Mono', 'Fira Code', monospace;
-            font-size: 0.8rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            white-space: pre-wrap;
-        }
-
-        .peek-code .highlight {
-            color: var(--accent-cyan);
-        }
-
-        /* Author Section */
-        .author-section {
-            padding: 6rem 0;
-            background: var(--bg-secondary);
-        }
-
+        /* Author */
         .author-grid {
             display: grid;
-            grid-template-columns: 350px 1fr;
+            grid-template-columns: 280px 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .author-image-container {
-            position: relative;
-        }
-
-        .author-image {
-            width: 100%;
+        .author-photo {
             aspect-ratio: 1;
-            background: linear-gradient(135deg, var(--bg-card), var(--bg-primary));
             border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 3px solid var(--border-glass);
         }
 
-        .author-image::after {
+        .author-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .author-photo::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent 60%, var(--glow-cyan) 100%);
-            opacity: 0.3;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
         }
 
-        .author-badge {
-            position: absolute;
-            bottom: -1rem;
-            right: -1rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            padding: 0.75rem 1.25rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            box-shadow: 0 4px 20px var(--glow-cyan);
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
 
         .author-content h2 {
             font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .author-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
+            color: #d1d5db;
             font-size: 1.1rem;
-            line-height: 1.7;
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
-        .author-quote {
-            font-style: italic;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border-left: 3px solid var(--accent-cyan);
-            border-radius: 0 12px 12px 0;
-            margin: 2rem 0;
-            color: var(--text-primary);
-        }
-
-        .author-credentials {
+        .author-stats {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
-        .credential {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            transition: all 0.2s;
+        .author-stat {
+            text-align: center;
         }
 
-        .credential:hover {
-            border-color: var(--accent-cyan);
-            color: var(--text-primary);
+        .author-stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--cyan);
         }
 
-        .credential-icon {
-            font-size: 1rem;
+        .author-stat-label {
+            font-size: 0.85rem;
+            color: #d1d5db;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         /* Testimonials */
-        .testimonials {
-            padding: 6rem 0;
-        }
-
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -933,30 +764,22 @@
         }
 
         .testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
             padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--accent-purple);
-            transform: translateY(-2px);
         }
 
         .testimonial-stars {
             color: #fbbf24;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
+            margin-bottom: 1rem;
         }
 
         .testimonial-text {
-            color: var(--text-secondary);
+            color: #e5e7eb;
             font-size: 1rem;
             line-height: 1.7;
             margin-bottom: 1.5rem;
+            font-style: italic;
         }
 
         .testimonial-author {
@@ -968,13 +791,13 @@
         .testimonial-avatar {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .testimonial-info h4 {
@@ -984,69 +807,50 @@
 
         .testimonial-info p {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: #9ca3af;
         }
 
         /* Pricing */
-        .pricing {
-            padding: 6rem 0;
-            background: var(--bg-secondary);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
         .pricing-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
+            max-width: 500px;
+            margin: 0 auto;
             padding: 3rem;
+            text-align: center;
+            border: 2px solid var(--blue);
             position: relative;
-            transition: all 0.3s;
+            overflow: hidden;
         }
 
-        .pricing-card.featured {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 60px var(--glow-cyan);
-        }
-
-        .pricing-card.featured::before {
+        .pricing-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            border-radius: 24px 24px 0 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
         }
 
         .pricing-badge {
             display: inline-block;
-            padding: 0.375rem 0.875rem;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            border-radius: 50px;
-            font-size: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: white;
+            font-size: 0.8rem;
             font-weight: 700;
+            border-radius: 100px;
             margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
         }
 
         .pricing-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
         .pricing-desc {
-            color: var(--text-muted);
+            color: #d1d5db;
             margin-bottom: 2rem;
-            font-size: 0.95rem;
         }
 
         .price {
@@ -1054,31 +858,23 @@
         }
 
         .price-value {
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 900;
-            letter-spacing: -0.03em;
-        }
-
-        .price-currency {
-            font-size: 1.5rem;
-            vertical-align: super;
-            opacity: 0.7;
-        }
-
-        .price-original {
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            margin-left: 0.5rem;
+            background: linear-gradient(135deg, var(--text), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
         }
 
         .price-label {
-            color: var(--text-muted);
+            color: #9ca3af;
             font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         .pricing-features {
             list-style: none;
+            text-align: left;
             margin-bottom: 2rem;
         }
 
@@ -1086,9 +882,9 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-secondary);
+            padding: 0.875rem 0;
+            border-bottom: 1px solid var(--border-glass);
+            color: #e5e7eb;
         }
 
         .pricing-features li:last-child {
@@ -1096,81 +892,29 @@
         }
 
         .pricing-features .check {
-            color: var(--accent-emerald);
-            font-weight: bold;
-        }
-
-        .buy-btn {
-            width: 100%;
-        }
-
-        /* Guarantee */
-        .guarantee {
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .guarantee-box {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 3rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-        }
-
-        .guarantee-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .guarantee-box h3 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .guarantee-box p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.7;
+            color: var(--green);
         }
 
         /* FAQ */
-        .faq {
-            padding: 6rem 0;
-            background: var(--bg-secondary);
-        }
-
         .faq-list {
             max-width: 800px;
             margin: 0 auto;
         }
 
         .faq-item {
-            border: 1px solid var(--border);
-            border-radius: 16px;
             margin-bottom: 1rem;
             overflow: hidden;
-            background: var(--bg-card);
-            transition: all 0.3s;
-        }
-
-        .faq-item:hover {
-            border-color: rgba(0, 212, 255, 0.3);
-        }
-
-        .faq-item.active {
-            border-color: var(--accent-cyan);
         }
 
         .faq-question {
             width: 100%;
             padding: 1.5rem;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.1rem;
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            color: var(--text);
+            font-size: 1.05rem;
             font-weight: 600;
             text-align: left;
             cursor: pointer;
@@ -1178,12 +922,22 @@
             justify-content: space-between;
             align-items: center;
             font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            border-color: var(--blue);
         }
 
         .faq-question span {
+            color: var(--cyan);
             font-size: 1.5rem;
-            color: var(--accent-cyan);
             transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question {
+            border-color: var(--blue);
+            border-radius: 16px 16px 0 0;
         }
 
         .faq-item.active .faq-question span {
@@ -1192,7 +946,11 @@
 
         .faq-answer {
             padding: 0 1.5rem 1.5rem;
-            color: var(--text-secondary);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-top: none;
+            border-radius: 0 0 16px 16px;
+            color: #e5e7eb;
             line-height: 1.7;
             display: none;
         }
@@ -1201,51 +959,40 @@
             display: block;
         }
 
-        /* Final CTA */
-        .final-cta {
-            padding: 8rem 0;
+        /* CTA */
+        .cta-section {
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .final-cta::before {
+        .cta-section::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(ellipse, var(--glow-purple) 0%, transparent 60%);
-            z-index: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            z-index: -1;
         }
 
-        .final-cta .container {
-            position: relative;
-            z-index: 1;
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
         }
 
-        .final-cta h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .final-cta p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
         }
 
         /* Footer */
         footer {
-            padding: 4rem 0;
-            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-glass);
             text-align: center;
         }
 
@@ -1253,430 +1000,1032 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: #d1d5db;
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+            font-size: 0.9rem;
+            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--accent-cyan);
+            color: var(--cyan);
         }
 
         footer p {
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--cyan);
+        }
+
+        /* Enhanced Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+
+        /* Typewriter cursor */
+        .typewriter::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: var(--cyan);
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Animated gradient text */
+        .gradient-animate {
+            background: linear-gradient(90deg, var(--blue-light), var(--cyan), var(--blue-light));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 3s linear infinite;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Glowing border animation */
+        @keyframes borderGlow {
+            0%, 100% { border-color: rgba(59, 130, 246, 0.3); box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); }
+            50% { border-color: rgba(34, 211, 238, 0.5); box-shadow: 0 0 30px rgba(34, 211, 238, 0.2); }
+        }
+
+        /* Card 3D tilt effect */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        .tilt-card:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+        }
+
+        /* Floating animation for elements */
+        .float-slow {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Scale in animation */
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Slide in from sides */
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-left.visible, .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Icon bounce on hover */
+        .icon-bounce:hover {
+            animation: iconBounce 0.5s ease;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-8px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(-4px); }
+        }
+
+        /* Rotate on hover */
+        .rotate-hover {
+            transition: transform 0.4s ease;
+        }
+
+        .rotate-hover:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* Underline animation */
+        .animated-underline {
+            position: relative;
+        }
+
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
+            transition: width 0.4s ease;
+        }
+
+        .animated-underline:hover::after {
+            width: 100%;
+        }
+
+        /* Number counter animation handled by JS */
+        .count-up {
+            display: inline-block;
+        }
+
+        /* Magnetic button effect */
+        .magnetic-btn {
+            transition: transform 0.2s ease;
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Glow text */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.5), 0 0 20px rgba(34, 211, 238, 0.3), 0 0 30px rgba(34, 211, 238, 0.2);
+        }
+
+        /* Morphing blob in background */
+        .blob {
+            position: absolute;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 15s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            25% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            50% { border-radius: 50% 60% 30% 60% / 70% 40% 70% 30%; }
+            75% { border-radius: 60% 40% 60% 40% / 50% 60% 30% 60%; }
+        }
+
+        /* Mouse Glow */
+        .mouse-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+        }
+
+        /* Terminal Code Block */
+        .terminal-block {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 3rem auto;
+            max-width: 700px;
+        }
+
+        .terminal-header {
+            background: #161b22;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27ca40; }
+
+        .terminal-title {
+            margin-left: 0.5rem;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .terminal-line {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .terminal-comment { color: #8b949e; }
+        .terminal-keyword { color: #ff7b72; }
+        .terminal-function { color: #d2a8ff; }
+        .terminal-string { color: #a5d6ff; }
+        .terminal-number { color: #79c0ff; }
+        .terminal-variable { color: #ffa657; }
+        .terminal-operator { color: #ff7b72; }
+
+        /* Term Sheet Pricing */
+        .term-sheet {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .term-sheet-header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(34, 211, 238, 0.1));
+            border: 1px solid var(--border-glass);
+            border-bottom: none;
+            border-radius: 20px 20px 0 0;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .term-sheet-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--cyan);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .term-sheet-name {
+            font-size: 1.75rem;
+            font-weight: 800;
+        }
+
+        .term-sheet-body {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 0 0 20px 20px;
+            padding: 2rem;
+        }
+
+        .term-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .term-row:last-child {
+            border-bottom: none;
+        }
+
+        .term-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .term-value {
+            font-weight: 700;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .term-value.highlight {
+            color: var(--cyan);
+        }
+
+        .term-value.green {
+            color: var(--green);
+        }
+
+        .carry-section {
+            background: rgba(34, 211, 238, 0.08);
+            border: 1px dashed var(--cyan);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .carry-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--cyan);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .carry-text {
             color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .carry-text strong {
+            color: var(--text);
+        }
+
+        .pricing-tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tier-card {
+            background: var(--bg-glass);
+            border: 2px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tier-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-4px);
+        }
+
+        .tier-card.selected {
+            border-color: var(--cyan);
+            background: rgba(34, 211, 238, 0.15);
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.2);
+        }
+
+        .tier-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 24px;
+            height: 24px;
+            background: var(--cyan);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .tier-card.featured {
+            border-color: rgba(34, 211, 238, 0.5);
+            background: rgba(34, 211, 238, 0.08);
+        }
+
+        /* Lead Capture Form */
+        .lead-form {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .form-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .form-label .required {
+            color: var(--cyan);
+        }
+
+        .form-input, .form-select, .form-textarea {
+            padding: 0.875rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
+        }
+
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: var(--text-dim);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-checkbox input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--cyan);
+            cursor: pointer;
+        }
+
+        .form-error {
+            color: #ef4444;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .submit-btn {
+            margin-top: 1.5rem;
+        }
+
+        .lp-price-note {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .tier-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tier-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .tier-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--cyan);
+            color: var(--bg-dark);
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .signature-line {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .signature-x {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .signature-field {
+            flex: 1;
+            border-bottom: 1px solid var(--border-glass);
+            height: 30px;
+        }
+
+        /* VC Jargon Decoder */
+        .jargon-section {
+            padding: 4rem 0;
+        }
+
+        .jargon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .jargon-card {
+            padding: 1.25rem;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .jargon-term {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cyan);
+            margin-bottom: 0.25rem;
+        }
+
+        .jargon-hint {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .jargon-definition {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 280px;
+            padding: 1rem;
+            background: rgba(17, 24, 39, 0.98);
+            border: 1px solid var(--cyan);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .jargon-definition::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: var(--cyan);
+        }
+
+        .jargon-card:hover .jargon-definition {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .jargon-definition strong {
+            color: var(--cyan);
+            display: block;
+            margin-bottom: 0.5rem;
             font-size: 0.9rem;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero-content {
-                order: 1;
-            }
-
-            .hero-book {
-                order: 0;
-                margin-bottom: 2rem;
-            }
-
-            .hero-badges {
-                justify-content: center;
-            }
-
-            .hero-subtitle {
-                margin: 0 auto 2rem;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .book-cover {
-                width: 260px;
-                height: 360px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .features-grid,
-            .chapters-grid,
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .peek-grid,
-            .author-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .author-image {
-                max-width: 280px;
-                margin: 0 auto;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-cta { justify-content: center; flex-wrap: wrap; }
+            .hero-stats { justify-content: center; }
+            .hero-book { margin-top: 3rem; order: -1; }
+            .features-grid { grid-template-columns: 1fr; }
+            .chapters-grid { grid-template-columns: repeat(2, 1fr); }
+            .author-grid { grid-template-columns: 1fr; text-align: center; }
+            .author-photo { max-width: 220px; margin: 0 auto 2rem; }
+            .author-stats { justify-content: center; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .book-image { width: 280px; }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            .container { padding: 0 1.25rem; }
+            .nav-links { display: none; }
+            .hero { padding: 5rem 0 2rem; }
+            .hero h1 { font-size: 1.75rem; line-height: 1.2; }
+            .hero h1 .gradient-animate { font-size: 1.25rem; }
+            .hero-sub { font-size: 1rem; }
+            .hero-badge { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+            .hero-cta { flex-direction: column; gap: 0.75rem; }
+            .hero-cta .btn { width: 100%; }
+            .chapters-grid { grid-template-columns: 1fr; }
+            .hero-stats { flex-wrap: wrap; gap: 0.75rem; }
+            .stat-card { padding: 0.75rem 1rem; }
+            .stat-value { font-size: 1.5rem; }
+            .proof-items { flex-direction: column; gap: 0.75rem; text-align: center; }
+            section { padding: 3rem 0; }
+            .section-header h2 { font-size: 1.6rem; }
+            .section-header p { font-size: 1rem; }
+            .mouse-glow { display: none; }
+            .book-image { width: 220px; }
+            .feature-card { padding: 1.5rem; }
+            .feature-icon { font-size: 2rem; }
+            .pricing-card { padding: 2rem 1.5rem; }
+            .price-value { font-size: 3.5rem; }
+            .beta-note { font-size: 0.8rem; }
+            .tilt-card:hover { transform: none; }
+            .cta-section h2 { font-size: 1.75rem; }
+            .footer-links { flex-wrap: wrap; gap: 1rem; justify-content: center; }
+            .jargon-grid { grid-template-columns: repeat(2, 1fr); }
+            .terminal-body { padding: 1rem; font-size: 0.75rem; }
+            .pricing-tiers { grid-template-columns: 1fr; }
+            .term-row { flex-direction: column; gap: 0.5rem; text-align: center; }
+            .term-value { text-align: center; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
 
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .stats-grid,
-            .features-grid,
-            .chapters-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .final-cta h2 {
-                font-size: 2.25rem;
-            }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.5rem; }
+            .hero h1 .gradient-animate { font-size: 1.1rem; }
+            .stat-card { flex: 1 1 45%; }
+            .chapter-card { padding: 1rem; }
+            .chapter-title { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <div class="particles" id="particles"></div>
+
+    <!-- Background -->
+    <div class="bg-wrapper">
+        <div class="bg-gradient"></div>
+        <div class="hex-pattern"></div>
+        <div class="grid-lines"></div>
+        <canvas class="neural-canvas" id="neuralCanvas"></canvas>
+        <div class="data-flow" id="dataFlow"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="blob" style="width: 600px; height: 600px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(34, 211, 238, 0.08)); top: 30%; left: 10%; filter: blur(80px);"></div>
+        <div class="blob" style="width: 400px; height: 400px; background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(59, 130, 246, 0.06)); bottom: 20%; right: 15%; filter: blur(60px); animation-delay: -5s;"></div>
+    </div>
+
+    <!-- Mouse Glow -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <header id="header">
         <div class="container">
-            <div class="logo">
-                <div class="logo-icon">VC</div>
-                <div class="logo-text">VALUE ADD <span>VC</span></div>
-            </div>
+            <div class="logo">Value Add VC</div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#features">Why This Book</a></li>
-                    <li><a href="#chapters">What's Inside</a></li>
-                    <li><a href="#author">About Trace</a></li>
-                    <li><a href="#pricing">Get the Book</a></li>
+                    <li><a href="#features">What's Inside</a></li>
+                    <li><a href="#author">Author</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                 </ul>
             </nav>
-            <a href="#pricing" class="btn btn-primary">Buy Now — $29</a>
+            <a href="#pricing" class="btn btn-primary">Download Now</a>
         </div>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badges">
-                    <span class="badge">New for 2026</span>
-                    <span class="badge badge-purple">3 Years of Insights</span>
-                </div>
-                <h1>The <span class="gradient-text">Value Add VC</span></h1>
-                <p class="hero-subtitle">Cheering From the Sidelines: The practical guide to venture capital in the AI era. 35 chapters of actionable frameworks from 100+ deep-dive newsletter posts.</p>
-                <div class="hero-cta">
-                    <a href="#pricing" class="btn btn-primary btn-large">
-                        <span class="btn-icon">📚</span> Get Instant Access
-                    </a>
-                    <a href="#chapters" class="btn btn-outline btn-large">See What's Inside</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-value">35</div>
-                        <div class="stat-label">Chapters</div>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">📘 The Essential VC Handbook</div>
+                    <h1 class="fade-up">The Value Add VC<br><span class="gradient-animate">In The Trenches With You</span></h1>
+                    <p class="hero-sub">The insider's guide to fundraising, fund economics, and building in the AI era. 20 years of hard-won lessons from a 3x founder and 65+ investment veteran.</p>
+                    <div class="hero-cta fade-up stagger-2">
+                        <a href="#pricing" class="btn btn-primary btn-lg ripple magnetic-btn">Download Free PDF</a>
+                        <a href="#features" class="btn btn-glass btn-lg ripple">Explore Contents</a>
                     </div>
-                    <div class="stat">
-                        <div class="stat-value">150+</div>
-                        <div class="stat-label">Pages</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">50+</div>
-                        <div class="stat-label">Frameworks</div>
+                    <p class="beta-note fade-up stagger-3">🔥 Limited beta access — Free for early readers. Paid launch coming soon.</p>
+                    <div class="hero-stats">
+                        <div class="stat-card glass tilt-card fade-up stagger-1">
+                            <div class="stat-value"><span class="count-up" data-target="65">0</span>+</div>
+                            <div class="stat-label">Investments</div>
+                        </div>
+                        <div class="stat-card glass tilt-card fade-up stagger-2">
+                            <div class="stat-value">3x</div>
+                            <div class="stat-label">Founder</div>
+                        </div>
+                        <div class="stat-card glass tilt-card fade-up stagger-3">
+                            <div class="stat-value"><span class="count-up" data-target="20">0</span></div>
+                            <div class="stat-label">Years</div>
+                        </div>
+                        <div class="stat-card glass tilt-card fade-up stagger-4">
+                            <div class="stat-value"><span class="count-up" data-target="60">0</span>K+</div>
+                            <div class="stat-label">Followers</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="hero-book">
-                <div class="book-glow"></div>
-                <div class="book-3d">
-                    <div class="book-spine"></div>
-                    <div class="book-cover">
-                        <h2>THE VALUE ADD VC</h2>
-                        <h3>Cheering From the Sidelines</h3>
-                        <div class="author">Trace Cohen</div>
+                <div class="hero-book scale-in">
+                    <div class="book-container float-slow">
+                        <div class="book-glow"></div>
+                        <img src="book-mockup.png" alt="The Value Add VC Handbook" class="book-image rotate-hover">
+                        <div class="book-shine"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Social Proof -->
     <section class="social-proof">
-        <div class="proof-track">
-            <div class="proof-item"><span class="proof-icon">📊</span><span class="proof-text">Based on <strong>100+ newsletter posts</strong></span></div>
-            <div class="proof-item"><span class="proof-icon">💼</span><span class="proof-text"><strong>65+ investments</strong> made</span></div>
-            <div class="proof-item"><span class="proof-icon">🦄</span><span class="proof-text"><strong>108+ unicorns</strong> tracked</span></div>
-            <div class="proof-item"><span class="proof-icon">📈</span><span class="proof-text"><strong>900+ VC funds</strong> analyzed</span></div>
-            <div class="proof-item"><span class="proof-icon">🎯</span><span class="proof-text"><strong>15+ years</strong> in tech</span></div>
-            <div class="proof-item"><span class="proof-icon">🚀</span><span class="proof-text"><strong>3x founder</strong> turned VC</span></div>
-            <div class="proof-item"><span class="proof-icon">📊</span><span class="proof-text">Based on <strong>100+ newsletter posts</strong></span></div>
-            <div class="proof-item"><span class="proof-icon">💼</span><span class="proof-text"><strong>65+ investments</strong> made</span></div>
-            <div class="proof-item"><span class="proof-icon">🦄</span><span class="proof-text"><strong>108+ unicorns</strong> tracked</span></div>
-            <div class="proof-item"><span class="proof-icon">📈</span><span class="proof-text"><strong>900+ VC funds</strong> analyzed</span></div>
-            <div class="proof-item"><span class="proof-icon">🎯</span><span class="proof-text"><strong>15+ years</strong> in tech</span></div>
-            <div class="proof-item"><span class="proof-icon">🚀</span><span class="proof-text"><strong>3x founder</strong> turned VC</span></div>
-        </div>
-    </section>
-
-    <section class="stats-bar">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-card-icon">📚</div>
-                    <div class="stat-card-value">35</div>
-                    <div class="stat-card-label">In-Depth Chapters</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card-icon">📊</div>
-                    <div class="stat-card-value">50+</div>
-                    <div class="stat-card-label">Actionable Frameworks</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card-icon">📈</div>
-                    <div class="stat-card-value">150+</div>
-                    <div class="stat-card-label">Pages of Insights</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-card-icon">✅</div>
-                    <div class="stat-card-value">12</div>
-                    <div class="stat-card-label">Ready-to-Use Checklists</div>
-                </div>
+            <div class="proof-items">
+                <div class="proof-item">✓ <strong>3x</strong> Founder & Operator</div>
+                <div class="proof-item">🐦 <strong>23K</strong> Twitter</div>
+                <div class="proof-item">💼 <strong>38K</strong> LinkedIn</div>
+                <div class="proof-item">📧 <strong>100+</strong> Newsletter Issues</div>
             </div>
         </div>
     </section>
 
-    <section class="features" id="features">
+    <!-- Features -->
+    <section id="features">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Why This Book</span>
-                <h2>Built Different</h2>
-                <p>Not another theory book. Real frameworks from real deals, condensed from three years of weekly analysis.</p>
+                <span class="section-tag">What's Inside</span>
+                <h2>20 Chapters. Zero Fluff.</h2>
+                <p>Every chapter is actionable. Real frameworks you can use immediately.</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Data-Driven Analysis</h3>
-                    <p>Every insight backed by real market data. Charts, benchmarks, and metrics from hundreds of fund analyses and startup evaluations.</p>
+                <div class="feature-card glass tilt-card fade-up stagger-1">
+                    <div class="feature-icon icon-bounce">🤖</div>
+                    <h3>Why Vertical AI Wins</h3>
+                    <p>Data-backed analysis of why domain-specific AI is crushing horizontal plays in 2025.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Immediately Actionable</h3>
-                    <p>Each chapter ends with "Action Items" — concrete steps you can implement Monday morning. No fluff, just execution.</p>
+                <div class="feature-card glass tilt-card fade-up stagger-2">
+                    <div class="feature-icon icon-bounce">💰</div>
+                    <h3>Fund Economics</h3>
+                    <p>How VCs actually make money. The 2/20 structure, carry, and why most funds fail.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI-Era Focused</h3>
-                    <p>Why vertical AI wins, how to evaluate AI agents, enterprise adoption frameworks, and the future of AI-native companies.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Capital Stack Mastery</h3>
-                    <p>Fund economics, LP dynamics, family office strategies, and the emerging manager playbook. Understand the money behind the money.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
+                <div class="feature-card glass tilt-card fade-up stagger-3">
+                    <div class="feature-icon icon-bounce">📈</div>
                     <h3>Fundraising Playbooks</h3>
-                    <p>Stage-by-stage guides from pre-seed to Series C. Metrics, terms, timelines, and tactics that actually work in 2026.</p>
+                    <p>Stage-by-stage frameworks from pre-seed to Series C with real metrics.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
-                    <h3>Ready-to-Use Templates</h3>
-                    <p>Due diligence checklists, term sheet guides, LP evaluation frameworks, and investment thesis templates you can use today.</p>
+                <div class="feature-card glass tilt-card fade-up stagger-4">
+                    <div class="feature-icon icon-bounce">🎯</div>
+                    <h3>Term Sheet Tactics</h3>
+                    <p>Negotiation strategies that protect your stake without killing the deal.</p>
+                </div>
+                <div class="feature-card glass tilt-card fade-up stagger-5">
+                    <div class="feature-icon icon-bounce">💎</div>
+                    <h3>Exit Strategies</h3>
+                    <p>IPOs, M&A, secondaries, and the new hire-and-license model explained.</p>
+                </div>
+                <div class="feature-card glass tilt-card fade-up stagger-6">
+                    <div class="feature-icon icon-bounce">🏦</div>
+                    <h3>LP/GP Dynamics</h3>
+                    <p>Family office capital, institutional allocators, and due diligence frameworks.</p>
+                </div>
+            </div>
+
+            <!-- Terminal Code Block -->
+            <div class="terminal-block fade-up">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                    <span class="terminal-title">vc_returns.py</span>
+                </div>
+                <div class="terminal-body">
+                    <span class="terminal-line"><span class="terminal-comment"># The math VCs don't tell you</span></span>
+                    <span class="terminal-line"><span class="terminal-keyword">def</span> <span class="terminal-function">calculate_fund_returns</span>(fund_size, ownership, exit_value):</span>
+                    <span class="terminal-line">    <span class="terminal-variable">investment</span> <span class="terminal-operator">=</span> fund_size <span class="terminal-operator">*</span> <span class="terminal-number">0.02</span>  <span class="terminal-comment"># 2% per deal avg</span></span>
+                    <span class="terminal-line">    <span class="terminal-variable">return_multiple</span> <span class="terminal-operator">=</span> (exit_value <span class="terminal-operator">*</span> ownership) <span class="terminal-operator">/</span> investment</span>
+                    <span class="terminal-line">    <span class="terminal-keyword">return</span> <span class="terminal-string">f"</span><span class="terminal-number">{return_multiple}</span><span class="terminal-string">x return"</span></span>
+                    <span class="terminal-line"></span>
+                    <span class="terminal-line"><span class="terminal-comment"># Reality: Only 4% of deals return the fund</span></span>
+                    <span class="terminal-line"><span class="terminal-comment"># Chapter 7 breaks down why.</span></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="whats-inside" id="chapters">
+    <!-- Chapters -->
+    <section>
         <div class="container">
             <div class="section-header">
-                <span class="section-label">What's Inside</span>
-                <h2>35 Chapters. 11 Parts. Zero BS.</h2>
-                <p>Comprehensive coverage of everything that matters in venture capital today</p>
+                <span class="section-tag">Full Contents</span>
+                <h2>Every Chapter at a Glance</h2>
             </div>
             <div class="chapters-grid">
-                <div class="chapter-card">
-                    <div class="chapter-number">PART I</div>
-                    <div class="chapter-title">The Market</div>
-                    <div class="chapter-desc">State of VC, the J-curve collapse, market bifurcation, and what's actually happening with returns</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART II</div>
-                    <div class="chapter-title">Vertical AI Revolution</div>
-                    <div class="chapter-desc">Why vertical beats horizontal, enterprise adoption frameworks, AI agent architectures, and evaluation criteria</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART III</div>
-                    <div class="chapter-title">The Capital Stack</div>
-                    <div class="chapter-desc">Fund economics, emerging managers, family office dynamics, and LP relationship strategies</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART IV</div>
-                    <div class="chapter-title">Exits & Liquidity</div>
-                    <div class="chapter-desc">Why VC is in the business of exits, secondaries market, continuation funds, and liquidity strategies</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART V</div>
-                    <div class="chapter-title">Big Tech & Infrastructure</div>
-                    <div class="chapter-desc">Build vs. buy decisions, the $1B engineer, hyperscaler dynamics, and AI infrastructure plays</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART VI</div>
-                    <div class="chapter-title">Practical Frameworks</div>
-                    <div class="chapter-desc">Fundraising playbooks, startup fundamentals, metrics that matter, and valuation benchmarks</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART VII</div>
-                    <div class="chapter-title">The Future</div>
-                    <div class="chapter-desc">10-year predictions, macro trends, where the puck is going, and how to position yourself</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART VIII</div>
-                    <div class="chapter-title">Due Diligence</div>
-                    <div class="chapter-desc">LP evaluation frameworks, founder assessment checklists, and reference check question banks</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART IX</div>
-                    <div class="chapter-title">Data Appendix</div>
-                    <div class="chapter-desc">Complete benchmarks, valuation tables, term sheet guides, and ready-to-use checklists</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART X</div>
-                    <div class="chapter-title">Case Studies</div>
-                    <div class="chapter-desc">a16z $15B fund analysis, ServiceTitan IPO deep-dive, and Figma's $67B journey breakdown</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">PART XI</div>
-                    <div class="chapter-title">Advanced Playbooks</div>
-                    <div class="chapter-desc">AI agent evaluation, common founder mistakes, thesis building, and term sheet negotiation tactics</div>
-                </div>
-                <div class="chapter-card">
-                    <div class="chapter-number">BONUS</div>
-                    <div class="chapter-title">Complete Fundraising Guide</div>
-                    <div class="chapter-desc">Pre-seed through Series B+, stage-by-stage playbook with metrics, terms, and timeline expectations</div>
-                </div>
+                <div class="chapter-card glass tilt-card scale-in stagger-1"><div class="chapter-num">PART I</div><div class="chapter-title">The Market</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-2"><div class="chapter-num">PART II</div><div class="chapter-title">Vertical AI</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-3"><div class="chapter-num">PART III</div><div class="chapter-title">Capital Stack</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-4"><div class="chapter-num">PART IV</div><div class="chapter-title">Exits</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-1"><div class="chapter-num">PART V</div><div class="chapter-title">Big Tech</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-2"><div class="chapter-num">PART VI</div><div class="chapter-title">Frameworks</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-3"><div class="chapter-num">PART VII</div><div class="chapter-title">Predictions</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-4"><div class="chapter-num">PART VIII</div><div class="chapter-title">Due Diligence</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-1"><div class="chapter-num">PART IX</div><div class="chapter-title">Data</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-2"><div class="chapter-num">PART X</div><div class="chapter-title">Case Studies</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-3"><div class="chapter-num">PART XI</div><div class="chapter-title">Playbooks</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-4"><div class="chapter-num">BONUS</div><div class="chapter-title glow-text">Enterprise AI</div></div>
             </div>
         </div>
     </section>
 
-    <section class="sneak-peek">
+    <!-- VC Jargon Decoder -->
+    <section class="jargon-section">
         <div class="container">
-            <div class="peek-grid">
-                <div class="peek-content">
-                    <span class="section-label">Sample Framework</span>
-                    <h3>The Kind of Actionable Content You'll Get</h3>
-                    <ul class="peek-list">
-                        <li>
-                            <span class="peek-check">✓</span>
-                            <span class="peek-text"><strong>ASCII charts & data tables</strong> — Real numbers, not hand-wavy projections</span>
-                        </li>
-                        <li>
-                            <span class="peek-check">✓</span>
-                            <span class="peek-text"><strong>Decision frameworks</strong> — Structured approaches to complex VC decisions</span>
-                        </li>
-                        <li>
-                            <span class="peek-check">✓</span>
-                            <span class="peek-text"><strong>Evaluation matrices</strong> — Score deals, funds, and opportunities systematically</span>
-                        </li>
-                        <li>
-                            <span class="peek-check">✓</span>
-                            <span class="peek-text"><strong>Checklists you can use</strong> — Stop reinventing the wheel every time</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="peek-preview">
-                    <pre class="peek-code"><span class="highlight">SERIES A METRICS (2026 STANDARDS)</span>
-═══════════════════════════════════════
-
-<span class="highlight">B2B SaaS:</span>
-├── ARR: $1-2M minimum, $3M+ preferred
-├── Growth: 3x YoY or 15%+ MoM
-├── NDR: >110%, ideally >120%
-├── Gross Margin: >70%
-├── CAC Payback: <18 months
-└── Logo Retention: >85%
-
-<span class="highlight">THE GAP:</span>
-Only ~25% of seed companies raise A.
-If you don't hit these, extend runway.
-═══════════════════════════════════════</pre>
-                </div>
+            <div class="section-header">
+                <span class="section-tag">Insider Knowledge</span>
+                <h2>Decode VC Jargon</h2>
+                <p>Hover to learn the terms VCs throw around. All explained in detail in the handbook.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="author-section" id="author">
-        <div class="container">
-            <div class="author-grid">
-                <div class="author-image-container">
-                    <div class="author-image">TC</div>
-                    <div class="author-badge">3x Founder → VC</div>
+            <div class="jargon-grid">
+                <div class="jargon-card glass">
+                    <div class="jargon-term">SAFE</div>
+                    <div class="jargon-hint">Hover to decode</div>
+                    <div class="jargon-definition">
+                        <strong>Simple Agreement for Future Equity</strong>
+                        An investment contract that converts to equity at a future priced round. No interest, no maturity date. Chapter 4 covers when to use vs. convertible notes.
+                    </div>
                 </div>
-                <div class="author-content">
-                    <span class="section-label">About the Author</span>
-                    <h2>Trace Cohen</h2>
-                    <p>Named after the TRACE supercomputer, perhaps destined for a life in technology. NYC native, son of entrepreneurs, started his first company in college.</p>
-                    <p>After founding BrandYourself, Launch.it, and SPOT, Trace transitioned to venture capital. As Managing Director at New York Venture Partners, he made 65+ investments before launching Six Point Ventures in 2025, focused on vertical AI.</p>
-                    <blockquote class="author-quote">
-                        "The best founders are obsessed with a problem, not just an idea. This book is everything I wish I'd known when I started."
-                    </blockquote>
-                    <div class="author-credentials">
-                        <span class="credential"><span class="credential-icon">🎓</span> Syracuse → Columbia MBA</span>
-                        <span class="credential"><span class="credential-icon">💼</span> 65+ Investments</span>
-                        <span class="credential"><span class="credential-icon">🚀</span> 3x Founder</span>
-                        <span class="credential"><span class="credential-icon">📅</span> 15+ Years in Tech</span>
-                        <span class="credential"><span class="credential-icon">🤖</span> Vertical AI Focus</span>
+                <div class="jargon-card glass">
+                    <div class="jargon-term">Pro-Rata</div>
+                    <div class="jargon-hint">Hover to decode</div>
+                    <div class="jargon-definition">
+                        <strong>Proportional Rights</strong>
+                        The right to invest in future rounds to maintain your ownership %. Most valuable right in VC. Chapter 9 explains why VCs fight for this.
+                    </div>
+                </div>
+                <div class="jargon-card glass">
+                    <div class="jargon-term">Carry</div>
+                    <div class="jargon-hint">Hover to decode</div>
+                    <div class="jargon-definition">
+                        <strong>Carried Interest</strong>
+                        The 20% of profits GPs keep after returning LP capital. The real way VCs make money. Chapter 6 breaks down the fund economics.
+                    </div>
+                </div>
+                <div class="jargon-card glass">
+                    <div class="jargon-term">DPI</div>
+                    <div class="jargon-hint">Hover to decode</div>
+                    <div class="jargon-definition">
+                        <strong>Distributions to Paid-In</strong>
+                        Actual cash returned to LPs divided by capital invested. The metric that matters most. Chapter 11 covers all fund metrics.
+                    </div>
+                </div>
+                <div class="jargon-card glass">
+                    <div class="jargon-term">MFN</div>
+                    <div class="jargon-hint">Hover to decode</div>
+                    <div class="jargon-definition">
+                        <strong>Most Favored Nation</strong>
+                        Clause that gives you the best terms given to any investor. Essential protection for early investors. See Chapter 5.
+                    </div>
+                </div>
+                <div class="jargon-card glass">
+                    <div class="jargon-term">TVPI</div>
+                    <div class="jargon-hint">Hover to decode</div>
+                    <div class="jargon-definition">
+                        <strong>Total Value to Paid-In</strong>
+                        Unrealized gains + distributions divided by invested capital. Can be misleading—paper returns vs. real cash. Chapter 11.
+                    </div>
+                </div>
+                <div class="jargon-card glass">
+                    <div class="jargon-term">LP/GP</div>
+                    <div class="jargon-hint">Hover to decode</div>
+                    <div class="jargon-definition">
+                        <strong>Limited Partner / General Partner</strong>
+                        LPs provide capital, GPs invest it. The fundamental structure of every VC fund. Chapter 6 explains the relationship.
+                    </div>
+                </div>
+                <div class="jargon-card glass">
+                    <div class="jargon-term">Liquidation Pref</div>
+                    <div class="jargon-hint">Hover to decode</div>
+                    <div class="jargon-definition">
+                        <strong>Liquidation Preference</strong>
+                        Investors get paid first in an exit, before common shareholders. 1x is standard, 2x+ is aggressive. Chapter 5 covers term sheet tactics.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonials">
+    <!-- Author -->
+    <section id="author">
+        <div class="container">
+            <div class="author-grid">
+                <div class="author-photo slide-left float-slow"><img src="trace-photo.png" alt="Trace Cohen"></div>
+                <div class="author-content slide-right">
+                    <span class="section-tag">About the Author</span>
+                    <h2>Trace Cohen</h2>
+                    <p>Named after the TRACE supercomputer, I've spent 20 years in tech as a founder and investor. After building and selling multiple companies, I transitioned to venture capital at New York Venture Partners where I made 65+ investments.</p>
+                    <p>In 2025, I launched Six Point Ventures focused on vertical AI. This handbook distills everything I've learned into actionable frameworks.</p>
+                    <div class="author-stats">
+                        <div class="author-stat">
+                            <div class="author-stat-value">23K</div>
+                            <div class="author-stat-label">Twitter</div>
+                        </div>
+                        <div class="author-stat">
+                            <div class="author-stat-value">38K</div>
+                            <div class="author-stat-label">LinkedIn</div>
+                        </div>
+                        <div class="author-stat">
+                            <div class="author-stat-value">65+</div>
+                            <div class="author-stat-label">Investments</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="reviews">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Reader Feedback</span>
+                <span class="section-tag">Reviews</span>
                 <h2>What Readers Are Saying</h2>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card glass tilt-card fade-up stagger-1">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Finally, a VC book that's actually useful. The fundraising frameworks alone saved me weeks of prep time. This should be required reading for any founder raising capital."</p>
+                    <p class="testimonial-text">"Finally, a VC book that's actually useful. The fundraising frameworks alone saved me weeks of prep."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">JM</div>
                         <div class="testimonial-info">
@@ -1685,9 +2034,9 @@ If you don't hit these, extend runway.
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card glass tilt-card fade-up stagger-2">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"The LP evaluation framework is exactly what I needed. Trace cuts through the noise and gives you tools you can actually use. No fluff, just actionable insights."</p>
+                    <p class="testimonial-text">"The LP evaluation framework is exactly what I needed. Trace cuts through the noise with real tools."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">SK</div>
                         <div class="testimonial-info">
@@ -1696,9 +2045,9 @@ If you don't hit these, extend runway.
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card glass tilt-card fade-up stagger-3">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"I've read dozens of VC books. This is the first one I've highlighted on every page. The vertical AI analysis is especially prescient. Highly recommend."</p>
+                    <p class="testimonial-text">"I've read dozens of VC books. This is the first one I've highlighted on every page."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">DR</div>
                         <div class="testimonial-info">
@@ -1711,108 +2060,163 @@ If you don't hit these, extend runway.
         </div>
     </section>
 
-    <section class="pricing" id="pricing">
+    <!-- Pricing -->
+    <section id="pricing">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Get the Book</span>
-                <h2>Choose Your Format</h2>
-                <p>Instant access to everything you need to navigate VC in the AI era</p>
+                <span class="section-tag">Term Sheet</span>
+                <h2>The Deal</h2>
+                <p>Choose your terms. No board seat required.</p>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-title">Digital Edition</div>
-                    <p class="pricing-desc">The complete PDF, optimized for any device</p>
-                    <div class="price">
-                        <span class="price-currency">$</span><span class="price-value">29</span>
-                        <div class="price-label">One-time purchase</div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="check">✓</span> 150+ page PDF</li>
-                        <li><span class="check">✓</span> 35 chapters, 50+ frameworks</li>
-                        <li><span class="check">✓</span> All charts & data tables</li>
-                        <li><span class="check">✓</span> Lifetime updates</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn btn-outline btn-large buy-btn">
-                        Get Digital — $29
-                    </a>
+
+            <div class="term-sheet scale-in">
+                <div class="term-sheet-header">
+                    <div class="term-sheet-title">General Partner Agreement</div>
+                    <div class="term-sheet-name">The Value Add VC Handbook</div>
                 </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">BEST VALUE</div>
-                    <div class="pricing-title">Complete Bundle</div>
-                    <p class="pricing-desc">PDF + All bonus materials & templates</p>
-                    <div class="price">
-                        <span class="price-currency">$</span><span class="price-value">49</span>
-                        <span class="price-original">$79</span>
-                        <div class="price-label">One-time purchase</div>
+                <div class="term-sheet-body">
+                    <div class="term-row">
+                        <span class="term-label">Security Type</span>
+                        <span class="term-value">PDF (Simple Agreement for Future Knowledge)</span>
                     </div>
-                    <ul class="pricing-features">
-                        <li><span class="check">✓</span> Everything in Digital</li>
-                        <li><span class="check">✓</span> Editable checklist templates</li>
-                        <li><span class="check">✓</span> Term sheet negotiation guide</li>
-                        <li><span class="check">✓</span> Investment thesis worksheet</li>
-                        <li><span class="check">✓</span> LP pitch deck template</li>
-                        <li><span class="check">✓</span> Priority email support</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/YOUR_STRIPE_BUNDLE_LINK" class="btn btn-primary btn-large buy-btn">
-                        Get Bundle — $49
-                    </a>
+                    <div class="term-row">
+                        <span class="term-label">Pre-Money Valuation</span>
+                        <span class="term-value" style="text-decoration: line-through; opacity: 0.5;">$29</span>
+                    </div>
+                    <div class="term-row">
+                        <span class="term-label">Your Investment</span>
+                        <span class="term-value highlight" style="font-size: 1.5rem;">$0</span>
+                    </div>
+                    <div class="term-row">
+                        <span class="term-label">Liquidation Preference</span>
+                        <span class="term-value green">Immediate download, no vesting</span>
+                    </div>
+
+                    <div class="carry-section">
+                        <div class="carry-title">📜 The "Intellectual Carry" Clause</div>
+                        <p class="carry-text">
+                            By downloading, you agree to <strong>20% Intellectual Carry</strong>: If this book helps you close a deal, raise a fund, or avoid a bad term sheet — you owe me <strong>a coffee and a shout-out</strong> at your next LP meeting. Honor system. 😉
+                        </p>
+                    </div>
+
+                    <div class="pricing-tiers">
+                        <div class="tier-card selected" data-tier="ghosted" data-price="0" onclick="selectTier(this)">
+                            <div class="tier-emoji">😤</div>
+                            <div class="tier-name">The Ghosted Founder</div>
+                            <div class="tier-price">FREE</div>
+                            <div class="tier-desc">Been left on read by a VC? This one's on us.</div>
+                        </div>
+                        <div class="tier-card featured" data-tier="unicorn" data-price="0" onclick="selectTier(this)">
+                            <div class="tier-tag">Most Popular</div>
+                            <div class="tier-emoji">🦄</div>
+                            <div class="tier-name">The "Passed on a Unicorn"</div>
+                            <div class="tier-price">FREE*</div>
+                            <div class="tier-desc">*Guilt-based pricing. You know who you are.</div>
+                        </div>
+                        <div class="tier-card" data-tier="lp" data-price="19.99" onclick="selectTier(this)">
+                            <div class="tier-emoji">🏦</div>
+                            <div class="tier-name">The LP Tier</div>
+                            <div class="tier-price">$19.99</div>
+                            <div class="tier-desc">Quarterly Zoom office hours with me.</div>
+                        </div>
+                    </div>
+
+                    <!-- Lead Capture Form -->
+                    <div class="lead-form">
+                        <div class="form-title">📝 Sign the term sheet</div>
+                        <form id="downloadForm" onsubmit="handleFormSubmit(event)">
+                            <input type="hidden" id="selectedTier" name="tier" value="ghosted">
+                            <input type="hidden" id="selectedPrice" name="price" value="0">
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Name <span class="required">*</span></label>
+                                    <input type="text" class="form-input" id="userName" name="name" placeholder="Your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email <span class="required">*</span></label>
+                                    <input type="email" class="form-input" id="userEmail" name="email" placeholder="you@company.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Company</label>
+                                    <input type="text" class="form-input" id="userCompany" name="company" placeholder="Your company (optional)">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Role</label>
+                                    <select class="form-select" id="userRole" name="role">
+                                        <option value="">Select your role (optional)</option>
+                                        <option value="founder">Founder</option>
+                                        <option value="vc">VC / Investor</option>
+                                        <option value="lp">LP / Allocator</option>
+                                        <option value="operator">Operator</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label class="form-label">What do you want to learn?</label>
+                                    <textarea class="form-textarea" id="userGoals" name="goals" placeholder="e.g., fundraising, fund economics, term sheets... (optional)"></textarea>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" id="emailOptIn" name="optIn" checked>
+                                        Send me updates, new chapters, and VC insights
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg ripple magnetic-btn submit-btn" style="width: 100%;" id="submitBtn">
+                                Sign & Download (It's Free)
+                            </button>
+
+                            <p class="lp-price-note" id="lpNote" style="display: none;">
+                                You'll be redirected to Stripe to complete your $19.99 payment.
+                            </p>
+                        </form>
+                    </div>
+
+                    <div class="signature-line">
+                        <span class="signature-x">X</span>
+                        <div class="signature-field" id="signatureDisplay" style="font-family: 'Brush Script MT', cursive; font-size: 1.5rem; color: var(--cyan); min-height: 30px;"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="guarantee">
-        <div class="container">
-            <div class="guarantee-box">
-                <div class="guarantee-icon">🛡️</div>
-                <h3>30-Day Money-Back Guarantee</h3>
-                <p>If the book doesn't deliver value, email me and I'll refund you. No questions asked. I've spent years compiling these insights — I'm confident you'll find them worth far more than the price.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq" id="faq">
+    <!-- FAQ -->
+    <section>
         <div class="container">
             <div class="section-header">
-                <span class="section-label">FAQ</span>
-                <h2>Common Questions</h2>
+                <span class="section-tag">FAQ</span>
+                <h2>Questions?</h2>
             </div>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">What format is the book delivered in?<span>+</span></button>
-                    <div class="faq-answer">You'll receive a professionally formatted PDF optimized for both screen reading and printing. The bundle also includes editable Google Docs and Notion templates for the checklists and frameworks.</div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">What format is the book?<span>+</span></button>
+                    <div class="faq-answer">You'll receive a professionally formatted PDF optimized for any device—laptop, tablet, or phone.</div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">Is this based on your newsletter?<span>+</span></button>
-                    <div class="faq-answer">Yes! This book condenses three years of weekly newsletter analysis (100+ posts) into a cohesive, actionable guide. It's been reorganized by theme, updated with 2026 data, and expanded with new frameworks and case studies not published anywhere else.</div>
-                </div>
-                <div class="faq-item">
+                <div class="faq-item fade-up">
                     <button class="faq-question">Who is this book for?<span>+</span></button>
-                    <div class="faq-answer">Founders raising capital, VCs evaluating opportunities, LPs allocating to venture funds, and operators navigating the AI transition. Each section is clearly labeled so you can skip to what's most relevant to your role.</div>
+                    <div class="faq-answer">Founders raising capital, VCs, LPs, and high-net-worth professionals who want insider perspective on tech and VC.</div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">Will I get future updates?<span>+</span></button>
-                    <div class="faq-answer">Absolutely. When the book is updated with new data, frameworks, or chapters, you'll receive the updated PDF at no additional cost. You're buying lifetime access to the content.</div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">Will I get updates?<span>+</span></button>
+                    <div class="faq-answer">Absolutely. When the handbook is updated, you'll receive the new PDF at no additional cost.</div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">What if it's not what I expected?<span>+</span></button>
-                    <div class="faq-answer">I offer a 30-day money-back guarantee. If you don't find value in the book, email me and I'll refund your purchase. No hoops, no questions.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">How is this different from other VC books?<span>+</span></button>
-                    <div class="faq-answer">Most VC books are theory. This is a manual. Every chapter ends with specific action items. You get frameworks you can use immediately — evaluation matrices, checklists, term sheet guides, and fundraising playbooks with actual benchmarks from 2026.</div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">How do I get the book after purchase?<span>+</span></button>
+                    <div class="faq-answer">After checkout via Stripe, you'll immediately receive a download link via email. DRM-free.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="final-cta">
+    <!-- CTA -->
+    <section class="cta-section">
         <div class="container">
-            <h2>Ready to Level Up?</h2>
-            <p>Join founders and investors using these frameworks to navigate venture capital in the AI era.</p>
-            <a href="#pricing" class="btn btn-primary btn-large">
-                <span class="btn-icon">📚</span> Get the Book Now
-            </a>
+            <h2 class="fade-up gradient-animate">Don't Miss the Free Window</h2>
+            <p class="fade-up stagger-1">This goes paid soon. Get your copy while it's free.</p>
+            <a href="#pricing" class="btn btn-primary btn-lg ripple magnetic-btn fade-up stagger-2">Download Free PDF</a>
         </div>
     </section>
 
@@ -1824,94 +2228,413 @@ If you don't hit these, extend runway.
                 <a href="https://twitter.com/tracecohen" target="_blank">Twitter</a>
                 <a href="https://linkedin.com/in/tracecohen" target="_blank">LinkedIn</a>
             </div>
-            <p style="margin-top: 1rem;">
-                <strong>Press & Inquiries:</strong> <a href="mailto:t@nyvp.com">t@nyvp.com</a>
-            </p>
-            <p style="margin-top: 1rem; opacity: 0.6;">© 2026 Trace Cohen. All rights reserved.</p>
+            <p>© 2026 Trace Cohen. <a href="mailto:t@nyvp.com">t@nyvp.com</a></p>
         </div>
     </footer>
 
     <script>
-        // Create floating particles
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 30; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-            if (Math.random() > 0.5) {
-                particle.style.background = '#7c3aed';
-            }
-            particlesContainer.appendChild(particle);
+        // Neural Network Background Animation
+        const canvas = document.getElementById('neuralCanvas');
+        const ctx = canvas.getContext('2d');
+        let nodes = [];
+        let animationId;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initNodes();
         }
 
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        function initNodes() {
+            nodes = [];
+            const nodeCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 25000));
+
+            for (let i = 0; i < nodeCount; i++) {
+                nodes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    radius: 2 + Math.random() * 2,
+                    pulsePhase: Math.random() * Math.PI * 2,
+                    pulseSpeed: 0.02 + Math.random() * 0.02
+                });
             }
+        }
+
+        function drawNetwork() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const connectionDistance = 180;
+            const time = Date.now() * 0.001;
+
+            // Draw connections
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < connectionDistance) {
+                        const opacity = (1 - dist / connectionDistance) * 0.4;
+                        const pulse = Math.sin(time * 2 + i * 0.1) * 0.2 + 0.8;
+
+                        // Gradient line
+                        const gradient = ctx.createLinearGradient(
+                            nodes[i].x, nodes[i].y,
+                            nodes[j].x, nodes[j].y
+                        );
+                        gradient.addColorStop(0, `rgba(59, 130, 246, ${opacity * pulse})`);
+                        gradient.addColorStop(0.5, `rgba(34, 211, 238, ${opacity * pulse * 1.2})`);
+                        gradient.addColorStop(1, `rgba(59, 130, 246, ${opacity * pulse})`);
+
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = gradient;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+
+                        // Occasional data pulse along connection
+                        if (Math.sin(time * 3 + i + j) > 0.97) {
+                            const t = (time * 2 + i) % 1;
+                            const px = nodes[i].x + (nodes[j].x - nodes[i].x) * t;
+                            const py = nodes[i].y + (nodes[j].y - nodes[i].y) * t;
+
+                            ctx.beginPath();
+                            ctx.arc(px, py, 2, 0, Math.PI * 2);
+                            ctx.fillStyle = 'rgba(34, 211, 238, 0.8)';
+                            ctx.fill();
+                        }
+                    }
+                }
+            }
+
+            // Draw nodes
+            nodes.forEach((node, i) => {
+                const pulse = Math.sin(node.pulsePhase + time * 2) * 0.5 + 0.5;
+                const glowRadius = node.radius * (2 + pulse);
+
+                // Outer glow
+                const gradient = ctx.createRadialGradient(
+                    node.x, node.y, 0,
+                    node.x, node.y, glowRadius * 3
+                );
+                gradient.addColorStop(0, `rgba(34, 211, 238, ${0.3 * pulse})`);
+                gradient.addColorStop(0.5, `rgba(59, 130, 246, ${0.1 * pulse})`);
+                gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, glowRadius * 3, 0, Math.PI * 2);
+                ctx.fillStyle = gradient;
+                ctx.fill();
+
+                // Core node
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(34, 211, 238, ${0.6 + pulse * 0.4})`;
+                ctx.fill();
+
+                // Update position
+                node.x += node.vx;
+                node.y += node.vy;
+
+                // Bounce off edges
+                if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+                if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+
+                // Keep in bounds
+                node.x = Math.max(0, Math.min(canvas.width, node.x));
+                node.y = Math.max(0, Math.min(canvas.height, node.y));
+            });
+
+            animationId = requestAnimationFrame(drawNetwork);
+        }
+
+        // Initialize and start
+        resizeCanvas();
+        drawNetwork();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Create flowing data lines
+        const dataFlow = document.getElementById('dataFlow');
+        function createFlowLine() {
+            const isVertical = Math.random() > 0.5;
+            const line = document.createElement('div');
+            line.className = isVertical ? 'flow-line-v' : 'flow-line';
+
+            if (isVertical) {
+                line.style.left = Math.random() * 100 + '%';
+                line.style.height = 50 + Math.random() * 100 + 'px';
+                line.style.animationDuration = 6 + Math.random() * 8 + 's';
+            } else {
+                line.style.top = Math.random() * 100 + '%';
+                line.style.width = 80 + Math.random() * 150 + 'px';
+                line.style.animationDuration = 5 + Math.random() * 6 + 's';
+            }
+
+            line.style.animationDelay = Math.random() * 5 + 's';
+            dataFlow.appendChild(line);
+
+            // Remove after animation
+            setTimeout(() => {
+                line.remove();
+            }, 15000);
+        }
+
+        // Create initial flow lines and continue creating
+        for (let i = 0; i < 8; i++) {
+            setTimeout(() => createFlowLine(), i * 500);
+        }
+        setInterval(createFlowLine, 2000);
+
+        // Mouse glow effect
+        const mouseGlow = document.getElementById('mouseGlow');
+        document.addEventListener('mousemove', (e) => {
+            mouseGlow.style.left = e.clientX + 'px';
+            mouseGlow.style.top = e.clientY + 'px';
         });
 
-        // FAQ accordion
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                const wasActive = item.classList.contains('active');
+        // Signature auto-fill
+        document.getElementById('userName').addEventListener('input', function(e) {
+            document.getElementById('signatureDisplay').textContent = e.target.value;
+        });
 
-                // Close all others
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    i.classList.remove('active');
+        // Tier Selection
+        function selectTier(card) {
+            // Remove selected from all
+            document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+            // Add selected to clicked
+            card.classList.add('selected');
+
+            // Update hidden fields
+            const tier = card.dataset.tier;
+            const price = card.dataset.price;
+            document.getElementById('selectedTier').value = tier;
+            document.getElementById('selectedPrice').value = price;
+
+            // Update button text and show/hide LP note
+            const submitBtn = document.getElementById('submitBtn');
+            const lpNote = document.getElementById('lpNote');
+
+            if (tier === 'lp') {
+                submitBtn.textContent = 'Continue to Payment ($19.99)';
+                lpNote.style.display = 'block';
+            } else {
+                submitBtn.textContent = 'Sign & Download (It\'s Free)';
+                lpNote.style.display = 'none';
+            }
+        }
+
+        // Google Sheets Integration
+        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzyxxH-MnLMQvGfR69A4rd69SHBT0cbPpXA1oE8yUhpwPLizJG2vZ09SFt2c-hbXPXX4w/exec';
+
+        async function sendToGoogleSheets(data) {
+            try {
+                // Send to Google Apps Script
+                await fetch(GOOGLE_SHEETS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
                 });
+                console.log('Data sent to Google Sheets');
+            } catch (error) {
+                console.error('Error sending to Google Sheets:', error);
+            }
+        }
 
-                // Toggle current
-                if (!wasActive) {
-                    item.classList.add('active');
-                }
+        // Form Submission
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+
+            const tier = document.getElementById('selectedTier').value;
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const company = document.getElementById('userCompany').value;
+            const role = document.getElementById('userRole').value;
+            const goals = document.getElementById('userGoals').value;
+            const optIn = document.getElementById('emailOptIn').checked;
+
+            // Basic validation
+            if (!name || !email) {
+                alert('Please fill in your name and email.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                return;
+            }
+
+            // Prepare lead data
+            const leadData = {
+                timestamp: new Date().toISOString(),
+                tier: tier,
+                name: name,
+                email: email,
+                company: company,
+                role: role,
+                goals: goals,
+                optIn: optIn ? 'Yes' : 'No',
+                price: tier === 'lp' ? '$19.99' : 'Free'
+            };
+
+            // Send to Google Sheets
+            await sendToGoogleSheets(leadData);
+
+            // Store in localStorage as backup
+            const leads = JSON.parse(localStorage.getItem('valueAddVCLeads') || '[]');
+            leads.push(leadData);
+            localStorage.setItem('valueAddVCLeads', JSON.stringify(leads));
+
+            if (tier === 'lp') {
+                // Redirect to Stripe payment link
+                // Replace YOUR_STRIPE_LINK with your actual Stripe payment link
+                window.location.href = 'https://buy.stripe.com/YOUR_STRIPE_LINK?prefilled_email=' + encodeURIComponent(email);
+            } else {
+                // Free download - trigger PDF download
+                const link = document.createElement('a');
+                link.href = 'The_Value_Add_VC_Handbook.pdf';
+                link.download = 'The_Value_Add_VC_Handbook.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                // Show thank you message
+                submitBtn.textContent = '✓ Downloaded!';
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            }
+        }
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    if (i !== item) i.classList.remove('active');
+                });
+                item.classList.toggle('active');
             });
         });
 
-        // Smooth scroll for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(anchor.getAttribute('href'));
                 if (target) {
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
                     window.scrollTo({
-                        top: offsetPosition,
+                        top: target.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Fade in on scroll - observe all animation classes
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
+
+                    // Trigger counter animation for count-up elements
+                    entry.target.querySelectorAll('.count-up').forEach(counter => {
+                        if (!counter.dataset.animated) {
+                            animateCounter(counter);
+                            counter.dataset.animated = 'true';
+                        }
+                    });
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.feature-card, .chapter-card, .stat-card, .testimonial-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
+        // Observe all animated elements
+        document.querySelectorAll('.fade-up, .scale-in, .slide-left, .slide-right').forEach(el => observer.observe(el));
+
+        // Counter animation function
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target);
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Magnetic button effect
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // 3D tilt effect on cards
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `perspective(1000px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // Parallax on scroll + Progress bar + Header effect
+        const scrollProgress = document.getElementById('scrollProgress');
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollY / docHeight) * 100;
+
+            // Update scroll progress bar
+            scrollProgress.style.width = progress + '%';
+
+            // Header scroll effect
+            if (scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Parallax orbs
+            document.querySelectorAll('.orb').forEach((orb, i) => {
+                const speed = 0.05 + (i * 0.02);
+                orb.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+
+            // Parallax blobs
+            document.querySelectorAll('.blob').forEach((blob, i) => {
+                const speed = 0.03 + (i * 0.015);
+                blob.style.transform = `translateY(${scrollY * speed}px)`;
+            });
         });
     </script>
 </body>

@@ -1,0 +1,197 @@
+/* Professional Book PDF Styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #3b82f6;
+    --text: #1f2937;
+    --text-light: #6b7280;
+}
+
+@page {
+    size: letter;
+    margin: 1in 0.85in;
+    @bottom-center {
+        content: counter(page);
+        font-family: 'Inter', sans-serif;
+        font-size: 10pt;
+        color: #9ca3af;
+    }
+}
+
+@page :first {
+    @bottom-center {
+        content: none;
+    }
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: none;
+}
+
+/* Cover Page */
+.cover-page {
+    page-break-after: always;
+    text-align: center;
+    padding-top: 3in;
+}
+
+/* Headings */
+h1 {
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--primary);
+    margin-top: 0.5in;
+    margin-bottom: 0.25in;
+    page-break-before: always;
+    page-break-after: avoid;
+    letter-spacing: -0.02em;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 0.15in;
+}
+
+h1:first-of-type {
+    page-break-before: avoid;
+}
+
+h2 {
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 0.4in;
+    margin-bottom: 0.15in;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 0.3in;
+    margin-bottom: 0.1in;
+    page-break-after: avoid;
+}
+
+h4 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 0.2in;
+    margin-bottom: 0.1in;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 0.12in;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 0.15in;
+    padding-left: 0.3in;
+}
+
+li {
+    margin-bottom: 0.05in;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 0.2in;
+    margin: 0.2in 0;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+/* Code blocks - Charts and Frameworks */
+pre {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 0.15in;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    overflow-x: auto;
+    page-break-inside: avoid;
+    margin: 0.15in 0;
+}
+
+code {
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 9pt;
+    background: #f1f5f9;
+    padding: 0.02in 0.05in;
+    border-radius: 3px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.15in 0;
+    font-size: 10pt;
+    page-break-inside: avoid;
+}
+
+th, td {
+    border: 1px solid #e2e8f0;
+    padding: 0.08in 0.12in;
+    text-align: left;
+}
+
+th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+/* Horizontal Rules */
+hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 0.3in 0;
+}
+
+/* Strong and Emphasis */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+em {
+    font-style: italic;
+}
+
+/* Links */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Page break utilities */
+.page-break {
+    page-break-after: always;
+}
+
+.no-break {
+    page-break-inside: avoid;
+}
+
+/* Part headers */
+h1:contains("PART") {
+    text-align: center;
+    border: none;
+    padding-top: 2in;
+}
