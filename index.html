@@ -790,14 +790,14 @@
         }
 
         .bingo-cell {
-            aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0.75rem;
-            font-size: 0.7rem;
-            line-height: 1.3;
+            padding: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            min-height: 100px;
             color: var(--text-muted);
             transition: all 0.3s;
             cursor: pointer;
@@ -1937,7 +1937,7 @@
             .audience-grid { grid-template-columns: 1fr; }
             .tools-grid { grid-template-columns: 1fr; }
             .bingo-grid { grid-template-columns: repeat(3, 1fr); }
-            .bingo-cell { font-size: 0.6rem; padding: 0.5rem; }
+            .bingo-cell { font-size: 0.8rem; padding: 0.75rem; min-height: 80px; }
             .key-stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -1949,7 +1949,7 @@
             .chapter-title { font-size: 0.9rem; }
             .chapter-desc { font-size: 0.7rem; }
             .bingo-grid { grid-template-columns: repeat(3, 1fr); }
-            .bingo-cell { font-size: 0.55rem; }
+            .bingo-cell { font-size: 0.75rem; min-height: 70px; }
             .key-stats-grid { grid-template-columns: 1fr 1fr; }
             .key-stat-value { font-size: 1.5rem; }
         }
