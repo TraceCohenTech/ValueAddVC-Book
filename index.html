@@ -680,6 +680,216 @@
             font-weight: 700;
         }
 
+        .chapter-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .glow-border {
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+        }
+
+        /* Audience Section */
+        .audience-section {
+            padding: 5rem 0;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .audience-card {
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .audience-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .audience-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--cyan);
+        }
+
+        .audience-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 5rem 0;
+            background: rgba(59, 130, 246, 0.03);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tool-card {
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .tool-card:hover {
+            border-color: var(--cyan);
+        }
+
+        .tool-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .tool-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .tool-card p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .tools-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Bingo Section */
+        .bingo-section {
+            padding: 5rem 0;
+        }
+
+        .bingo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .bingo-cell {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.75rem;
+            font-size: 0.7rem;
+            line-height: 1.3;
+            color: var(--text-muted);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .bingo-cell:hover {
+            background: rgba(34, 211, 238, 0.1);
+            border-color: var(--cyan);
+            color: var(--text);
+        }
+
+        .bingo-free {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: white;
+            font-weight: 700;
+        }
+
+        .bingo-tip {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Honest Glossary */
+        .honest-glossary-section {
+            padding: 5rem 0;
+            background: rgba(236, 72, 153, 0.03);
+        }
+
+        .honest-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .honest-card {
+            padding: 1.5rem;
+        }
+
+        .honest-term {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .honest-meaning {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .honest-tip {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* Key Stats Section */
+        .stats-section {
+            padding: 5rem 0;
+        }
+
+        .key-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+        }
+
+        .key-stat {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .key-stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            line-height: 1.4;
+        }
+
         /* Author */
         .author-grid {
             display: grid;
@@ -1683,6 +1893,11 @@
             .author-stats { justify-content: center; }
             .testimonials-grid { grid-template-columns: 1fr; }
             .book-image { width: 280px; }
+            .audience-grid { grid-template-columns: repeat(2, 1fr); }
+            .tools-grid { grid-template-columns: repeat(2, 1fr); }
+            .bingo-grid { grid-template-columns: repeat(5, 1fr); font-size: 0.65rem; }
+            .honest-grid { grid-template-columns: 1fr; }
+            .key-stats-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -1719,6 +1934,11 @@
             .term-row { flex-direction: column; gap: 0.5rem; text-align: center; }
             .term-value { text-align: center; }
             .form-grid { grid-template-columns: 1fr; }
+            .audience-grid { grid-template-columns: 1fr; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .bingo-grid { grid-template-columns: repeat(3, 1fr); }
+            .bingo-cell { font-size: 0.6rem; padding: 0.5rem; }
+            .key-stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 480px) {
@@ -1727,6 +1947,11 @@
             .stat-card { flex: 1 1 45%; }
             .chapter-card { padding: 1rem; }
             .chapter-title { font-size: 0.9rem; }
+            .chapter-desc { font-size: 0.7rem; }
+            .bingo-grid { grid-template-columns: repeat(3, 1fr); }
+            .bingo-cell { font-size: 0.55rem; }
+            .key-stats-grid { grid-template-columns: 1fr 1fr; }
+            .key-stat-value { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -1773,10 +1998,10 @@
             <div class="hero-grid">
                 <div class="hero-content">
                     <div class="hero-badge">📘 The Essential VC Handbook</div>
-                    <h1 class="fade-up">The Value Add VC<br><span class="gradient-animate">In The Trenches With You</span></h1>
-                    <p class="hero-sub">The insider's guide to fundraising, fund economics, and building in the AI era. 20 years of hard-won lessons from a 3x founder and 65+ investment veteran.</p>
+                    <h1 class="fade-up">The Value Add VC<br><span class="gradient-animate">How to Win in the Age of AI</span></h1>
+                    <p class="hero-sub">How the game of venture capital really works. 22 chapters on fundraising, fund economics, and building in the AI era — from a 3x founder and 65+ investment veteran.</p>
                     <div class="hero-cta fade-up stagger-2">
-                        <a href="#pricing" class="btn btn-primary btn-lg ripple magnetic-btn">Download Free PDF</a>
+                        <a href="#pricing" class="btn btn-primary btn-lg ripple magnetic-btn">Download Handbook</a>
                         <a href="#features" class="btn btn-glass btn-lg ripple">Explore Contents</a>
                     </div>
                     <p class="beta-note fade-up stagger-3">🔥 Limited beta access — Free for early readers. Paid launch coming soon.</p>
@@ -1827,39 +2052,39 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">What's Inside</span>
-                <h2>20 Chapters. Zero Fluff.</h2>
-                <p>Every chapter is actionable. Real frameworks you can use immediately.</p>
+                <h2>22 Chapters. Zero Fluff.</h2>
+                <p>Every chapter is actionable. Real frameworks you can use immediately. Plus interactive tools at valueaddvc.com.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card glass tilt-card fade-up stagger-1">
-                    <div class="feature-icon icon-bounce">🤖</div>
-                    <h3>Why Vertical AI Wins</h3>
-                    <p>Data-backed analysis of why domain-specific AI is crushing horizontal plays in 2025.</p>
+                    <div class="feature-icon icon-bounce">📉</div>
+                    <h3>The 2022 Repricing</h3>
+                    <p>Why interest rates changed everything. $621B peak funding, 80%+ IPO decline, and what it means for your next raise.</p>
                 </div>
                 <div class="feature-card glass tilt-card fade-up stagger-2">
-                    <div class="feature-icon icon-bounce">💰</div>
-                    <h3>Fund Economics</h3>
-                    <p>How VCs actually make money. The 2/20 structure, carry, and why most funds fail.</p>
+                    <div class="feature-icon icon-bounce">🤖</div>
+                    <h3>The Vertical AI Moat Stack</h3>
+                    <p>The 5-layer framework: domain expertise → workflow embedding → proprietary data → compliance → switching cost.</p>
                 </div>
                 <div class="feature-card glass tilt-card fade-up stagger-3">
-                    <div class="feature-icon icon-bounce">📈</div>
-                    <h3>Fundraising Playbooks</h3>
-                    <p>Stage-by-stage frameworks from pre-seed to Series C with real metrics.</p>
+                    <div class="feature-icon icon-bounce">💰</div>
+                    <h3>Fund Economics & Power Law</h3>
+                    <p>Why top 3 companies drive 74%+ of returns. The math that makes $75M funds beat $750M funds.</p>
                 </div>
                 <div class="feature-card glass tilt-card fade-up stagger-4">
                     <div class="feature-icon icon-bounce">🎯</div>
-                    <h3>Term Sheet Tactics</h3>
-                    <p>Negotiation strategies that protect your stake without killing the deal.</p>
+                    <h3>LP Due Diligence</h3>
+                    <p>The 6 dimensions allocators actually evaluate. Track record, construction, fund size, team, reporting, exit realism.</p>
                 </div>
                 <div class="feature-card glass tilt-card fade-up stagger-5">
-                    <div class="feature-icon icon-bounce">💎</div>
-                    <h3>Exit Strategies</h3>
-                    <p>IPOs, M&A, secondaries, and the new hire-and-license model explained.</p>
+                    <div class="feature-icon icon-bounce">📊</div>
+                    <h3>The Series A Gap</h3>
+                    <p>Why seed ≠ outcome. The specific metrics (NRR, burn multiple, cohort data) that separate funded from ghosted.</p>
                 </div>
                 <div class="feature-card glass tilt-card fade-up stagger-6">
-                    <div class="feature-icon icon-bounce">🏦</div>
-                    <h3>LP/GP Dynamics</h3>
-                    <p>Family office capital, institutional allocators, and due diligence frameworks.</p>
+                    <div class="feature-icon icon-bounce">🤝</div>
+                    <h3>Founder-Investor Alignment</h3>
+                    <p>The conversation nobody has before the term sheet. Different entry prices = different required outcomes.</p>
                 </div>
             </div>
 
@@ -1879,8 +2104,97 @@
                     <span class="terminal-line">    <span class="terminal-keyword">return</span> <span class="terminal-string">f"</span><span class="terminal-number">{return_multiple}</span><span class="terminal-string">x return"</span></span>
                     <span class="terminal-line"></span>
                     <span class="terminal-line"><span class="terminal-comment"># Reality: Only 4% of deals return the fund</span></span>
-                    <span class="terminal-line"><span class="terminal-comment"># Chapter 7 breaks down why.</span></span>
+                    <span class="terminal-line"><span class="terminal-comment"># Chapter 11 breaks down why.</span></span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Book Is For -->
+    <section class="audience-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Who Is This For?</span>
+                <h2>Whether You're Playing or Watching</h2>
+                <p>You don't have to be in VC for this book to matter. You just have to live in a world that VC is changing.</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card glass fade-up stagger-1">
+                    <div class="audience-icon">🚀</div>
+                    <h3>Founders</h3>
+                    <p>Deciding whether venture capital is right for your company — and understanding the game if you play</p>
+                </div>
+                <div class="audience-card glass fade-up stagger-2">
+                    <div class="audience-icon">💼</div>
+                    <h3>Emerging Fund Managers</h3>
+                    <p>Building your first or second vehicle and learning the mechanics that separate success from struggle</p>
+                </div>
+                <div class="audience-card glass fade-up stagger-3">
+                    <div class="audience-icon">🏦</div>
+                    <h3>LPs & Allocators</h3>
+                    <p>Seeking to understand what good fund management looks like and how to evaluate managers</p>
+                </div>
+                <div class="audience-card glass fade-up stagger-4">
+                    <div class="audience-icon">📊</div>
+                    <h3>Startup Employees</h3>
+                    <p>Trying to understand your equity and the game being played around you</p>
+                </div>
+                <div class="audience-card glass fade-up stagger-5">
+                    <div class="audience-icon">🤖</div>
+                    <h3>Operators & Advisors</h3>
+                    <p>Anyone building in the AI era who wants to understand the capital behind it</p>
+                </div>
+                <div class="audience-card glass fade-up stagger-6">
+                    <div class="audience-icon">👀</div>
+                    <h3>The Curious</h3>
+                    <p>Anyone who's watched venture from the outside and wanted to understand how it actually works</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tools -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Companion Tools</span>
+                <h2>Build With Real Frameworks</h2>
+                <p>The book comes with free interactive tools at <a href="https://valueaddvc.com" target="_blank" style="color: var(--cyan);">valueaddvc.com</a></p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card glass fade-up">
+                    <span class="tool-icon">🧮</span>
+                    <h4>Fund Economics Calculator</h4>
+                    <p>Model returns across fund sizes, fees, and carry scenarios</p>
+                </div>
+                <div class="tool-card glass fade-up">
+                    <span class="tool-icon">📝</span>
+                    <h4>Deal Memo Generator</h4>
+                    <p>AI-assisted memos with diligence templates</p>
+                </div>
+                <div class="tool-card glass fade-up">
+                    <span class="tool-icon">📉</span>
+                    <h4>Dilution Waterfall</h4>
+                    <p>Visualize ownership from seed through exit</p>
+                </div>
+                <div class="tool-card glass fade-up">
+                    <span class="tool-icon">🔥</span>
+                    <h4>Burn Multiple Tracker</h4>
+                    <p>Track efficiency with stage benchmarks</p>
+                </div>
+                <div class="tool-card glass fade-up">
+                    <span class="tool-icon">📊</span>
+                    <h4>Exit Distribution Analyzer</h4>
+                    <p>Model bear/base/bull scenarios with real data</p>
+                </div>
+                <div class="tool-card glass fade-up">
+                    <span class="tool-icon">🏆</span>
+                    <h4>Vertical AI Moat Scorecard</h4>
+                    <p>Score companies across 5 moat layers</p>
+                </div>
+            </div>
+            <div class="tools-cta fade-up">
+                <a href="https://valueaddvc.com" target="_blank" class="btn btn-glass btn-lg">Explore All Tools →</a>
             </div>
         </div>
     </section>
@@ -1893,18 +2207,36 @@
                 <h2>Every Chapter at a Glance</h2>
             </div>
             <div class="chapters-grid">
-                <div class="chapter-card glass tilt-card scale-in stagger-1"><div class="chapter-num">PART I</div><div class="chapter-title">The Market</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-2"><div class="chapter-num">PART II</div><div class="chapter-title">Vertical AI</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-3"><div class="chapter-num">PART III</div><div class="chapter-title">Capital Stack</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-4"><div class="chapter-num">PART IV</div><div class="chapter-title">Exits</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-1"><div class="chapter-num">PART V</div><div class="chapter-title">Big Tech</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-2"><div class="chapter-num">PART VI</div><div class="chapter-title">Frameworks</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-3"><div class="chapter-num">PART VII</div><div class="chapter-title">Predictions</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-4"><div class="chapter-num">PART VIII</div><div class="chapter-title">Due Diligence</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-1"><div class="chapter-num">PART IX</div><div class="chapter-title">Data</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-2"><div class="chapter-num">PART X</div><div class="chapter-title">Case Studies</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-3"><div class="chapter-num">PART XI</div><div class="chapter-title">Playbooks</div></div>
-                <div class="chapter-card glass tilt-card scale-in stagger-4"><div class="chapter-num">BONUS</div><div class="chapter-title glow-text">Enterprise AI</div></div>
+                <div class="chapter-card glass tilt-card scale-in stagger-1">
+                    <div class="chapter-num">PART I</div>
+                    <div class="chapter-title">The Repricing of Venture</div>
+                    <div class="chapter-desc">Capital cost, liquidity, duration, and what got exposed when money got expensive</div>
+                </div>
+                <div class="chapter-card glass tilt-card scale-in stagger-2">
+                    <div class="chapter-num">PART II</div>
+                    <div class="chapter-title">Where Value Accrues in AI</div>
+                    <div class="chapter-desc">The AI stack, vertical vs. horizontal, moat layers, and economics that matter</div>
+                </div>
+                <div class="chapter-card glass tilt-card scale-in stagger-3">
+                    <div class="chapter-num">PART III</div>
+                    <div class="chapter-title">The Capital Stack</div>
+                    <div class="chapter-desc">Ownership geometry, LP dynamics, fund construction, and raising from allocators</div>
+                </div>
+                <div class="chapter-card glass tilt-card scale-in stagger-4">
+                    <div class="chapter-num">PART IV</div>
+                    <div class="chapter-title">The Operator's Manual</div>
+                    <div class="chapter-desc">Fundraising funnels, Series A gap, burn discipline, and founder-investor alignment</div>
+                </div>
+                <div class="chapter-card glass tilt-card scale-in stagger-1">
+                    <div class="chapter-num">PART V</div>
+                    <div class="chapter-title">Structural Advantage</div>
+                    <div class="chapter-desc">Capital efficiency, market cycles, and what endures longer than sentiment</div>
+                </div>
+                <div class="chapter-card glass tilt-card scale-in stagger-2 glow-border">
+                    <div class="chapter-num">APPENDICES</div>
+                    <div class="chapter-title glow-text">Tools & References</div>
+                    <div class="chapter-desc">Full glossary, scenario models (bear/base/bull), and suggested reading</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1923,7 +2255,7 @@
                     <div class="jargon-hint">Hover to decode</div>
                     <div class="jargon-definition">
                         <strong>Simple Agreement for Future Equity</strong>
-                        An investment contract that converts to equity at a future priced round. No interest, no maturity date. Chapter 4 covers when to use vs. convertible notes.
+                        An investment contract that converts to equity at a future priced round. No interest, no maturity date. See Appendix A for full details.
                     </div>
                 </div>
                 <div class="jargon-card glass">
@@ -1931,7 +2263,7 @@
                     <div class="jargon-hint">Hover to decode</div>
                     <div class="jargon-definition">
                         <strong>Proportional Rights</strong>
-                        The right to invest in future rounds to maintain your ownership %. Most valuable right in VC. Chapter 9 explains why VCs fight for this.
+                        The right to invest in future rounds to maintain your ownership %. Most valuable right in VC. Chapter 12 explains why VCs fight for this.
                     </div>
                 </div>
                 <div class="jargon-card glass">
@@ -1939,7 +2271,7 @@
                     <div class="jargon-hint">Hover to decode</div>
                     <div class="jargon-definition">
                         <strong>Carried Interest</strong>
-                        The 20% of profits GPs keep after returning LP capital. The real way VCs make money. Chapter 6 breaks down the fund economics.
+                        The 20% of profits GPs keep after returning LP capital (above 8% hurdle). How GPs actually make money. Chapter 11 breaks down the math.
                     </div>
                 </div>
                 <div class="jargon-card glass">
@@ -1947,23 +2279,23 @@
                     <div class="jargon-hint">Hover to decode</div>
                     <div class="jargon-definition">
                         <strong>Distributions to Paid-In</strong>
-                        Actual cash returned to LPs divided by capital invested. The metric that matters most. Chapter 11 covers all fund metrics.
+                        Cash actually returned to LPs ÷ invested capital. The only metric that counts cash in the bank. Top-quartile: 2.0x+ DPI at close.
                     </div>
                 </div>
                 <div class="jargon-card glass">
-                    <div class="jargon-term">MFN</div>
+                    <div class="jargon-term">NRR</div>
                     <div class="jargon-hint">Hover to decode</div>
                     <div class="jargon-definition">
-                        <strong>Most Favored Nation</strong>
-                        Clause that gives you the best terms given to any investor. Essential protection for early investors. See Chapter 5.
+                        <strong>Net Revenue Retention</strong>
+                        Revenue kept from existing customers after 12 months including expansion. Elite vertical AI: 115–130%. Chapter 9 shows why this gap compounds.
                     </div>
                 </div>
                 <div class="jargon-card glass">
-                    <div class="jargon-term">TVPI</div>
+                    <div class="jargon-term">Burn Multiple</div>
                     <div class="jargon-hint">Hover to decode</div>
                     <div class="jargon-definition">
-                        <strong>Total Value to Paid-In</strong>
-                        Unrealized gains + distributions divided by invested capital. Can be misleading—paper returns vs. real cash. Chapter 11.
+                        <strong>Net cash burned ÷ net new ARR</strong>
+                        Below 1x: elite. 1–2x: efficient. 2–3x: acceptable. Above 3x: concerning. Chapter 17 covers burn discipline.
                     </div>
                 </div>
                 <div class="jargon-card glass">
@@ -1971,16 +2303,129 @@
                     <div class="jargon-hint">Hover to decode</div>
                     <div class="jargon-definition">
                         <strong>Limited Partner / General Partner</strong>
-                        LPs provide capital, GPs invest it. The fundamental structure of every VC fund. Chapter 6 explains the relationship.
+                        LPs provide capital, GPs invest it. The fundamental structure of every VC fund. Chapter 12 explains how LPs actually think.
                     </div>
                 </div>
                 <div class="jargon-card glass">
-                    <div class="jargon-term">Liquidation Pref</div>
+                    <div class="jargon-term">Denominator Effect</div>
                     <div class="jargon-hint">Hover to decode</div>
                     <div class="jargon-definition">
-                        <strong>Liquidation Preference</strong>
-                        Investors get paid first in an exit, before common shareholders. 1x is standard, 2x+ is aggressive. Chapter 5 covers term sheet tactics.
+                        <strong>Why LPs Say No Even When They Love You</strong>
+                        When public markets fall, private allocations rise as a % of portfolio, forcing LPs to pause commitments. Chapter 5 explains.
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VC Bingo Card -->
+    <section class="bingo-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🎲 Bonus</span>
+                <h2>The VC Bingo Card</h2>
+                <p>Things you will absolutely hear in LP meetings, pitch sessions, and board calls. Five in a row wins nothing except the knowledge that venture capital is predictable in all the ways it claims not to be.</p>
+            </div>
+            <div class="bingo-grid">
+                <div class="bingo-cell glass">"We're platform agnostic"</div>
+                <div class="bingo-cell glass">"Our DPI speaks for itself"</div>
+                <div class="bingo-cell glass">"We add value beyond capital"</div>
+                <div class="bingo-cell glass">"It's a $100B TAM"</div>
+                <div class="bingo-cell glass">"We're seeing strong signals"</div>
+                <div class="bingo-cell glass">Someone mentions "first principles"</div>
+                <div class="bingo-cell glass">"We're in the early innings"</div>
+                <div class="bingo-cell glass">"Our fund is right-sized"</div>
+                <div class="bingo-cell glass">"The founder has a unique insight"</div>
+                <div class="bingo-cell glass">"We passed on [famous company]"</div>
+                <div class="bingo-cell glass">"We have proprietary deal flow"</div>
+                <div class="bingo-cell glass">"We invest in category-defining companies"</div>
+                <div class="bingo-cell glass bingo-free">FREE SPACE:<br>"AI-native"</div>
+                <div class="bingo-cell glass">"We focus on founder-market fit"</div>
+                <div class="bingo-cell glass">"The market is at an inflection point"</div>
+                <div class="bingo-cell glass">"Our portfolio has strong markups"</div>
+                <div class="bingo-cell glass">PowerPoint has 80+ slides</div>
+                <div class="bingo-cell glass">"We're contrarian"</div>
+                <div class="bingo-cell glass">Someone references Sequoia</div>
+                <div class="bingo-cell glass">"We have a unique sourcing advantage"</div>
+                <div class="bingo-cell glass">"This is a winner-take-all market"</div>
+                <div class="bingo-cell glass">"It's like [X] for [Y]"</div>
+                <div class="bingo-cell glass">"Our portfolio NPS is very high"</div>
+                <div class="bingo-cell glass">"We move fast on conviction"</div>
+                <div class="bingo-cell glass">"The timing is perfect"</div>
+            </div>
+            <p class="bingo-tip">Pro tip: If you check off the entire card in a single meeting, you are either at a very productive conference or a very unproductive LP meeting.</p>
+        </div>
+    </section>
+
+    <!-- The Honest Glossary -->
+    <section class="honest-glossary-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">😏 The Unfiltered Version</span>
+                <h2>The Honest Glossary</h2>
+                <p>What people in venture actually mean when they say these things. Not for the easily offended.</p>
+            </div>
+            <div class="honest-grid">
+                <div class="honest-card glass fade-up">
+                    <div class="honest-term">"Value add"</div>
+                    <div class="honest-meaning">I'll introduce you to three people, two of whom won't respond. The third will take a meeting and then ghost you.</div>
+                </div>
+                <div class="honest-card glass fade-up">
+                    <div class="honest-term">"We're very excited about your company"</div>
+                    <div class="honest-meaning">We are going to pass. The enthusiasm is inversely correlated with commitment.</div>
+                </div>
+                <div class="honest-card glass fade-up">
+                    <div class="honest-term">"Let's keep in touch"</div>
+                    <div class="honest-meaning">I am never going to contact you again unless you make the front page of TechCrunch.</div>
+                </div>
+                <div class="honest-card glass fade-up">
+                    <div class="honest-term">"We're thesis-driven"</div>
+                    <div class="honest-meaning">We invest in whatever our best-performing peer invested in last quarter, but with a narrative.</div>
+                </div>
+                <div class="honest-card glass fade-up">
+                    <div class="honest-term">"Proprietary deal flow"</div>
+                    <div class="honest-meaning">Our associate found them on LinkedIn. Like everyone else.</div>
+                </div>
+                <div class="honest-card glass fade-up">
+                    <div class="honest-term">"We're founder-friendly"</div>
+                    <div class="honest-meaning">Until the first down round, at which point we will become "governance-focused."</div>
+                </div>
+            </div>
+            <p class="honest-tip">If you recognized yourself in more than three of these, congratulations: you are in venture capital.</p>
+        </div>
+    </section>
+
+    <!-- Key Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Numbers</span>
+                <h2>What the Data Shows</h2>
+            </div>
+            <div class="key-stats-grid">
+                <div class="key-stat glass fade-up">
+                    <div class="key-stat-value">$621B</div>
+                    <div class="key-stat-label">Peak global VC funding (2021)</div>
+                </div>
+                <div class="key-stat glass fade-up">
+                    <div class="key-stat-value">80%+</div>
+                    <div class="key-stat-label">Decline in IPO volume from peak</div>
+                </div>
+                <div class="key-stat glass fade-up">
+                    <div class="key-stat-value">7-11 yrs</div>
+                    <div class="key-stat-label">Average time to exit</div>
+                </div>
+                <div class="key-stat glass fade-up">
+                    <div class="key-stat-value">&lt;20</div>
+                    <div class="key-stat-label">Exits above $5B per year globally</div>
+                </div>
+                <div class="key-stat glass fade-up">
+                    <div class="key-stat-value">74%+</div>
+                    <div class="key-stat-label">Returns driven by top 3 companies</div>
+                </div>
+                <div class="key-stat glass fade-up">
+                    <div class="key-stat-value">8-12%</div>
+                    <div class="key-stat-label">Target ownership at exit</div>
                 </div>
             </div>
         </div>
@@ -1994,8 +2439,9 @@
                 <div class="author-content slide-right">
                     <span class="section-tag">About the Author</span>
                     <h2>Trace Cohen</h2>
-                    <p>Named after the TRACE supercomputer, I've spent 20 years in tech as a founder and investor. After building and selling multiple companies, I transitioned to venture capital at New York Venture Partners where I made 65+ investments.</p>
-                    <p>In 2025, I launched Six Point Ventures focused on vertical AI. This handbook distills everything I've learned into actionable frameworks.</p>
+                    <p>I was literally named after the Multiflow TRACE supercomputer — my parents ran a tech PR agency handling Sony and IBM. I grew up testing products, appearing in commercials, and learning the difference between a beta and a launch build before most kids knew what a computer was.</p>
+                    <p>I started my first company at 17 in my dorm room in 2007. That company ran for 14 years and was acquired in 2021. Along the way, I became member 400 of WeWork, joined New York Angels, and made 65+ investments. I built ValueAddVC.com using Claude in the terminal, connected to Vercel and Supabase — learning by doing.</p>
+                    <p>This handbook is everything I learned as a founder, investor, and operator, distilled into frameworks anyone can use.</p>
                     <div class="author-stats">
                         <div class="author-stat">
                             <div class="author-stat-value">23K</div>
@@ -2188,35 +2634,42 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">FAQ</span>
-                <h2>Questions?</h2>
+                <h2>Frequently Asked Questions</h2>
             </div>
             <div class="faq-list">
                 <div class="faq-item fade-up">
-                    <button class="faq-question">What format is the book?<span>+</span></button>
-                    <div class="faq-answer">You'll receive a professionally formatted PDF optimized for any device—laptop, tablet, or phone.</div>
+                    <button class="faq-question">Who is this handbook for?<span>+</span></button>
+                    <div class="faq-answer">Founders raising capital who want to understand how VCs think. Emerging fund managers learning the ropes. LPs evaluating fund investments. Operators curious about the venture world. Anyone who wants an unfiltered, insider look at how venture capital actually works.</div>
                 </div>
                 <div class="faq-item fade-up">
-                    <button class="faq-question">Who is this book for?<span>+</span></button>
-                    <div class="faq-answer">Founders raising capital, VCs, LPs, and high-net-worth professionals who want insider perspective on tech and VC.</div>
+                    <button class="faq-question">What makes this different from other VC books?<span>+</span></button>
+                    <div class="faq-answer">This isn't theory—it's 20 years of real experience distilled into practical frameworks. I've been a 3x founder, made 65+ investments, and seen both sides of the table. No fluff, no platitudes, just the stuff I wish someone had told me.</div>
                 </div>
                 <div class="faq-item fade-up">
-                    <button class="faq-question">Will I get updates?<span>+</span></button>
-                    <div class="faq-answer">Absolutely. When the handbook is updated, you'll receive the new PDF at no additional cost.</div>
+                    <button class="faq-question">What format is the handbook?<span>+</span></button>
+                    <div class="faq-answer">You'll receive a professionally formatted PDF optimized for any device—laptop, tablet, or phone. It's DRM-free, so you can read it however you like. Print book coming soon!</div>
                 </div>
                 <div class="faq-item fade-up">
-                    <button class="faq-question">How do I get the book after purchase?<span>+</span></button>
-                    <div class="faq-answer">After checkout via Stripe, you'll immediately receive a download link via email. DRM-free.</div>
+                    <button class="faq-question">What topics does it cover?<span>+</span></button>
+                    <div class="faq-answer">Fund economics and GP/LP dynamics. How VCs evaluate deals and what actually matters in a pitch. Term sheets, cap tables, and negotiation tactics. Portfolio construction and follow-on strategy. The unwritten rules of the VC game that nobody talks about.</div>
+                </div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">Will I get updates when new content is added?<span>+</span></button>
+                    <div class="faq-answer">Yes. If you opt in, you'll receive updates when new chapters or revisions are released. The VC landscape evolves, and so will this handbook.</div>
+                </div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">Why are you giving this away?<span>+</span></button>
+                    <div class="faq-answer">I believe knowledge should be accessible. Too much VC wisdom is gatekept behind expensive courses, exclusive networks, or learning the hard way. This is my way of paying it forward to the ecosystem.</div>
+                </div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">What's the LP Tier with office hours?<span>+</span></button>
+                    <div class="faq-answer">For $19.99, you get the handbook plus access to quarterly Zoom office hours with me. Bring your questions about fundraising, fund strategy, or anything VC-related. It's like having a VC on speed dial.</div>
+                </div>
+                <div class="faq-item fade-up">
+                    <button class="faq-question">How do I contact you with questions?<span>+</span></button>
+                    <div class="faq-answer">Email me directly at <a href="mailto:t@nyvp.com" style="color: var(--cyan);">t@nyvp.com</a>. I read every email and do my best to respond. You can also find me on Twitter <a href="https://twitter.com/tracecohen" target="_blank" style="color: var(--cyan);">@tracecohen</a>.</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="fade-up gradient-animate">Don't Miss the Free Window</h2>
-            <p class="fade-up stagger-1">This goes paid soon. Get your copy while it's free.</p>
-            <a href="#pricing" class="btn btn-primary btn-lg ripple magnetic-btn fade-up stagger-2">Download Free PDF</a>
         </div>
     </section>
 
