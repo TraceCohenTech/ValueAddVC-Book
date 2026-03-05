@@ -2583,11 +2583,11 @@
                             <div class="tier-price">FREE*</div>
                             <div class="tier-desc">*Guilt-based pricing. You know who you are.</div>
                         </div>
-                        <div class="tier-card" data-tier="lp" data-price="19.99" onclick="selectTier(this)">
+                        <div class="tier-card" data-tier="lp" data-price="9.99" onclick="selectTier(this)">
                             <div class="tier-emoji">🏦</div>
                             <div class="tier-name">The LP Tier</div>
-                            <div class="tier-price">$19.99</div>
-                            <div class="tier-desc">Quarterly Zoom office hours with me.</div>
+                            <div class="tier-price">$9.99</div>
+                            <div class="tier-desc">Support the author. Same book, good karma.</div>
                         </div>
                     </div>
 
@@ -2639,7 +2639,7 @@
                             </button>
 
                             <p class="lp-price-note" id="lpNote" style="display: none;">
-                                You'll be redirected to Stripe to complete your $19.99 payment.
+                                You'll be redirected to Stripe to complete your $9.99 payment.
                             </p>
                         </form>
                     </div>
@@ -2686,8 +2686,8 @@
                     <div class="faq-answer">I believe knowledge should be accessible. Too much VC wisdom is gatekept behind expensive courses, exclusive networks, or learning the hard way. This is my way of paying it forward to the ecosystem.</div>
                 </div>
                 <div class="faq-item fade-up">
-                    <button class="faq-question">What's the LP Tier with office hours?<span>+</span></button>
-                    <div class="faq-answer">For $19.99, you get the handbook plus access to quarterly Zoom office hours with me. Bring your questions about fundraising, fund strategy, or anything VC-related. It's like having a VC on speed dial.</div>
+                    <button class="faq-question">What's the LP Tier?<span>+</span></button>
+                    <div class="faq-answer">For $9.99, you get the same handbook as the free tier — it's just a way to support the work if you found it valuable. Think of it as buying me a coffee. Either way, you get the full book.</div>
                 </div>
                 <div class="faq-item fade-up">
                     <button class="faq-question">How do I contact you with questions?<span>+</span></button>
@@ -2895,7 +2895,7 @@
             const lpNote = document.getElementById('lpNote');
 
             if (tier === 'lp') {
-                submitBtn.textContent = 'Continue to Payment ($19.99)';
+                submitBtn.textContent = 'Continue to Payment ($9.99)';
                 lpNote.style.display = 'block';
             } else {
                 submitBtn.textContent = 'Sign & Download (It\'s Free)';
@@ -2958,7 +2958,7 @@
                 role: role,
                 goals: goals,
                 optIn: optIn ? 'Yes' : 'No',
-                price: tier === 'lp' ? '$19.99' : 'Free'
+                price: tier === 'lp' ? '$9.99' : 'Free'
             };
 
             // Send to Google Sheets

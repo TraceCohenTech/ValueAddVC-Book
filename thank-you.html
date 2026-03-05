@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | The Value Add VC Handbook</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #111827;
+            --bg-glass: rgba(255, 255, 255, 0.08);
+            --border-glass: rgba(255, 255, 255, 0.15);
+            --blue: #3b82f6;
+            --cyan: #22d3ee;
+            --green: #10b981;
+            --text: #ffffff;
+            --text-muted: #d1d5db;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background:
+                radial-gradient(ellipse 80% 80% at 50% -20%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 80% 50%, rgba(34, 211, 238, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #111827 0%, #1e293b 50%, #111827 100%);
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .download-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .download-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .note a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .note a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 2rem;
+        }
+
+        .back-link a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .back-link a:hover {
+            color: var(--cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">&#10003;</div>
+        <h1>Thank You!</h1>
+        <p class="subtitle">Your purchase is complete. You now have access to The Value Add VC Handbook.</p>
+
+        <div class="download-card">
+            <h2>Download Your Copy</h2>
+            <p>Click below to download your PDF. Save it somewhere safe!</p>
+            <a href="The_Value_Add_VC_Handbook.pdf" download class="btn btn-primary">
+                Download PDF
+            </a>
+        </div>
+
+        <p class="note">
+            Questions or feedback? Reach out anytime at <a href="mailto:t@nyvp.com">t@nyvp.com</a><br>
+            I read every email and would love to hear from you.
+        </p>
+
+        <div class="back-link">
+            <a href="index.html">&larr; Back to homepage</a>
+        </div>
+    </div>
+</body>
+</html>
