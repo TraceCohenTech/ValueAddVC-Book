@@ -1619,7 +1619,7 @@
 
         .pricing-tiers {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
             margin: 2rem 0;
         }
@@ -1923,6 +1923,10 @@
             .key-stats-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
+        @media (max-width: 1024px) {
+            .pricing-tiers { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 768px) {
             .container { padding: 0 1.25rem; }
             .nav-links { display: none; }
@@ -1953,7 +1957,7 @@
             .footer-links { flex-wrap: wrap; gap: 1rem; justify-content: center; }
             .jargon-grid { grid-template-columns: repeat(2, 1fr); }
             .terminal-body { padding: 1rem; font-size: 0.75rem; }
-            .pricing-tiers { grid-template-columns: 1fr; }
+            .pricing-tiers { grid-template-columns: repeat(2, 1fr); }
             .term-row { flex-direction: column; gap: 0.5rem; text-align: center; }
             .term-value { text-align: center; }
             .form-grid { grid-template-columns: 1fr; }
@@ -2612,6 +2616,12 @@
                             <div class="tier-price">$9.99</div>
                             <div class="tier-desc">Support the author. Same book, good karma.</div>
                         </div>
+                        <a href="https://www.amazon.com/dp/B0GS6Z4B6Q" target="_blank" class="tier-card" data-tier="paperback" data-price="amazon" onclick="event.stopPropagation();" style="text-decoration: none; color: inherit;">
+                            <div class="tier-emoji">📖</div>
+                            <div class="tier-name">The Paperback</div>
+                            <div class="tier-price">Amazon</div>
+                            <div class="tier-desc">Want it in print? Get the physical book on Kindle.</div>
+                        </a>
                     </div>
 
                     <!-- Lead Capture Form -->
@@ -2694,7 +2704,7 @@
                 </div>
                 <div class="faq-item fade-up">
                     <button class="faq-question">What format is the handbook?<span>+</span></button>
-                    <div class="faq-answer">You'll receive a professionally formatted PDF optimized for any device—laptop, tablet, or phone. It's DRM-free, so you can read it however you like. Print book coming soon!</div>
+                    <div class="faq-answer">You'll receive a professionally formatted PDF optimized for any device—laptop, tablet, or phone. It's DRM-free, so you can read it however you like. Want a physical copy? The paperback is also <a href="https://www.amazon.com/dp/B0GS6Z4B6Q" target="_blank" style="color: var(--cyan);">available on Amazon</a>.</div>
                 </div>
                 <div class="faq-item fade-up">
                     <button class="faq-question">What topics does it cover?<span>+</span></button>
