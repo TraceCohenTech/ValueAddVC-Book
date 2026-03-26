@@ -3004,7 +3004,7 @@
 
             if (tier === 'lp') {
                 // Redirect to Stripe payment link
-                window.location.href = 'https://buy.stripe.com/5kQ28k1g9b9Sf1M2gZ6g800?prefilled_email=' + encodeURIComponent(email);
+                window.top.location.href = 'https://buy.stripe.com/5kQ28k1g9b9Sf1M2gZ6g800?prefilled_email=' + encodeURIComponent(email);
             } else {
                 // Free download - trigger PDF download
                 const link = document.createElement('a');
